@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Fiap.TC03.Api.Cadastro": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7084",
+      "launchBrowser": false
+    }
+  }
+}
