@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fiap.TC03.Api.Cadastro", "Fiap.TC03.Api.Cadastro\Fiap.TC03.Api.Cadastro.csproj", "{DB0412D0-7596-4B60-B872-0168F40022B6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fiap.TC03.Api.Consulta", "Fiap.TC03.Api.Consulta\Fiap.TC03.Api.Consulta.csproj", "{96CF0F62-C3CD-4D55-9B6D-40F55F31B77C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{DB0412D0-7596-4B60-B872-0168F40022B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB0412D0-7596-4B60-B872-0168F40022B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB0412D0-7596-4B60-B872-0168F40022B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96CF0F62-C3CD-4D55-9B6D-40F55F31B77C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96CF0F62-C3CD-4D55-9B6D-40F55F31B77C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96CF0F62-C3CD-4D55-9B6D-40F55F31B77C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96CF0F62-C3CD-4D55-9B6D-40F55F31B77C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
