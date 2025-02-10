@@ -104,6 +104,9 @@ public class CadastroController
         }
         catch (ValidationException valEx)
         {
+            timer.ObserveDuration(); // Registra o tempo mesmo em caso de erro
+            requestCounter.WithLabels("400").Inc(); // Incrementa contador para erro
+            
             _logger.LogError($"Erro de validação: {valEx.Message}", valEx);
             return new BadRequestObjectResult(valEx.Message);
         }
