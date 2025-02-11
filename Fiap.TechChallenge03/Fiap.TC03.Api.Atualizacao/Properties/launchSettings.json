@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Fiap.TC03.Api.Atualizacao": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7294",
+      "launchBrowser": false
+    }
+  }
+}
