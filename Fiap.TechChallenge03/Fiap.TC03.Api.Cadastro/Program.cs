@@ -1,4 +1,4 @@
-using Fiap.TC03.Api.Cadastro.Domain.Command.Handler.v1;
+using Fiap.TC03.Api.Cadastro.Domain.Command.Handler;
 using Fiap.TC03.Api.Cadastro.Domain.Contato;
 using Fiap.TC03.Api.Cadastro.Domain.Contract.CriarContato;
 using Fiap.TC03.Api.Cadastro.Domain.DataBaseContext;

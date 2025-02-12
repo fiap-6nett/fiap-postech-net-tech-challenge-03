@@ -4,7 +4,7 @@ using Fiap.TC03.Api.Cadastro.Domain.Contract.CriarContato;
 using Fiap.TechChallenge.Foundation.Core.Messaging.Commands;
 using Microsoft.Extensions.Logging;
 
-namespace Fiap.TC03.Api.Cadastro.Domain.Command.Handler.v1;
+namespace Fiap.TC03.Api.Cadastro.Domain.Command.Handler;
 
 public class CriarContatoCommandHandler : ICommandHandler<CriarContatoCommand, CriarContatoCommandResult>
 {
