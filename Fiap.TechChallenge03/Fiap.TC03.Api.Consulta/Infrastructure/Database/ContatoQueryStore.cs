@@ -1,8 +1,6 @@
-﻿using System.Text.Json.Nodes;
-using Fiap.TC03.Api.Consulta.Domain.DataBaseContext;
+﻿using Fiap.TC03.Api.Consulta.Domain.DataBaseContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 
 namespace Fiap.TC03.Api.Consulta.Infrastructure.Database;
 
@@ -10,30 +8,11 @@ public class ContatoQueryStore : IContatoQueryStore
 {
     private readonly IDbContextFactory<AppDbContext> _dbContextFactory;
     private readonly ILogger<ContatoQueryStore> _logger;
-    
+
     public ContatoQueryStore(IDbContextFactory<AppDbContext> dbContextFactory, ILogger<ContatoQueryStore> logger)
     {
         _dbContextFactory = dbContextFactory;
         _logger = logger;
-    }
-
-
-    /// <summary>
-    ///     Obtém todos os contatos do banco de dados.
-    /// </summary>
-    /// <returns>Retorna uma lista de todos os contatos cadastrados.</returns>
-    public async Task<IEnumerable<ContatoEntity>> ObterTodosContatosAsync()
-    {
-        try
-        {
-            await using var dbContext = _dbContextFactory.CreateDbContext(); // Cria o contexto sob demanda
-            return await dbContext.Contatos.ToListAsync(); // Executa a consulta para obter todos os contatos.
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Erro ao obter todos os contatos.");
-            throw new Exception("Erro ao obter a lista de contatos. Tente novamente mais tarde.");
-        }
     }
 
     /// <summary>
@@ -93,5 +72,24 @@ public class ContatoQueryStore : IContatoQueryStore
         await using var dbContext = _dbContextFactory.CreateDbContext(); // Cria o contexto sob demanda
         return await dbContext.Contatos.AnyAsync(c =>
             (c.Email == email || (c.Telefone == telefone && c.DDD == ddd)) && (!id.HasValue || c.Id != id.Value));
+    }
+
+
+    /// <summary>
+    ///     Obtém todos os contatos do banco de dados.
+    /// </summary>
+    /// <returns>Retorna uma lista de todos os contatos cadastrados.</returns>
+    public async Task<IEnumerable<ContatoEntity>> ObterTodosContatosAsync()
+    {
+        try
+        {
+            await using var dbContext = _dbContextFactory.CreateDbContext(); // Cria o contexto sob demanda
+            return await dbContext.Contatos.ToListAsync(); // Executa a consulta para obter todos os contatos.
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Erro ao obter todos os contatos.");
+            throw new Exception("Erro ao obter a lista de contatos. Tente novamente mais tarde.");
+        }
     }
 }

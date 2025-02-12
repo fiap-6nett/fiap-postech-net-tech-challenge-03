@@ -1,5 +1,4 @@
-﻿
-using Fiap.TC03.Api.Consulta.Domain.DataBaseContext;
+﻿using Fiap.TC03.Api.Consulta.Domain.DataBaseContext;
 
 namespace Fiap.TC03.Api.Consulta.Domain.Result;
 

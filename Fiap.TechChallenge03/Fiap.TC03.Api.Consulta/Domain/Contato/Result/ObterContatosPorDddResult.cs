@@ -8,6 +8,6 @@ public class ObterContatosPorDddResult
     {
         Contatos = contatos;
     }
-    
+
     public List<ContatoEntity> Contatos { get; set; }
 }

@@ -49,7 +49,7 @@ var host = new HostBuilder()
             },
             OpenApiVersion = OpenApiVersionType.V3
         });
-        
+
 
         //  Obtém a ConnectionString do ambiente
         var commandStoreSettings = new CommandStoreSettings();
@@ -60,11 +60,11 @@ var host = new HostBuilder()
         //  Service
         services.AddTransient<IContatoService, ContatoService>();
         services.AddTransient<IContatoQueryStore, ContatoQueryStore>();
-        
+
         // FluentValidation
         services.AddValidatorsFromAssemblyContaining<ObterContatoPorIdQueryValidator>();
         services.AddValidatorsFromAssemblyContaining<ObterContatosPorDddQueryValidator>();
-        
+
         //  Handler
         services.AddTransient<ObterContatosPorDddQueryHandler>();
         services.AddTransient<ObterContatoPorIdQueryHandler>();
