@@ -5,6 +5,7 @@ using Fiap.TC03.Api.Cadastro.Domain.DataBaseContext;
 using Fiap.TC03.Api.Cadastro.Infrastructure.Database;
 using Fiap.TC03.Api.Cadastro.Infrastructure.MessageBroker;
 using FluentValidation;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Abstractions;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Configurations;
@@ -14,6 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
+using Prometheus;
 using RabbitMQ.Client;
 
 var host = new HostBuilder()
@@ -79,6 +81,9 @@ var host = new HostBuilder()
 
         //  Handler
         services.AddTransient<CriarContatoCommandHandler>();
+
+        services.UseHttpClientMetrics();
+        
     })
     .Build();
 
