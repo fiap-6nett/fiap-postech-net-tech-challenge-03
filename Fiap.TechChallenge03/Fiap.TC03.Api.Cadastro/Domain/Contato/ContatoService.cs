@@ -11,14 +11,12 @@ namespace Fiap.TC03.Api.Cadastro.Domain.Contato;
 
 public class ContatoService : IContatoService
 {
-    private readonly IContatoQueryStore _contatoQueryStore;
     private readonly ILogger<ContatoService> _logger;
     private readonly IMessageBrokerService _messageBrokerService;
 
-    public ContatoService(ILogger<ContatoService> logger, IContatoQueryStore contatoQueryStore, IMessageBrokerService messageBrokerService)
+    public ContatoService(ILogger<ContatoService> logger, IMessageBrokerService messageBrokerService)
     {
         _logger = logger;
-        _contatoQueryStore = contatoQueryStore;
         _messageBrokerService = messageBrokerService;
     }
 
