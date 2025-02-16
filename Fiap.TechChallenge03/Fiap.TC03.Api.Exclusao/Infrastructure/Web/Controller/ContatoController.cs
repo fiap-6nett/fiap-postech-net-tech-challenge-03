@@ -44,7 +44,7 @@ public class ContatoController
     [OpenApiOperation("RemoverContatoPorId", "Fiap", Description = DescriptionRemocao)]
     [OpenApiSecurity("function_key", SecuritySchemeType.ApiKey, Name = "code", In = OpenApiSecurityLocationType.Query)]
     [OpenApiParameter("id", In = ParameterLocation.Path, Required = true, Type = typeof(string), Description = "Id do Contato.")]
-    [OpenApiResponseWithBody(HttpStatusCode.OK, "application/json", typeof(RemoverContatoCommandResult), Description = "The OK response")]
+    [OpenApiResponseWithBody(HttpStatusCode.Accepted, "application/json", typeof(RemoverContatoCommandResult), Description = "The OK response")]
     public async Task<IActionResult> RemoverContatoPorId([HttpTrigger(AuthorizationLevel.Function, "Delete", Route = "v1/contato/{id}")] HttpRequest req, string id)
     {
         var histogram = "remover_contato_latency_seconds";
@@ -69,7 +69,7 @@ public class ContatoController
             
             stopwatch.Stop();
             timer.ObserveDuration(); // Registra o tempo no Prometheus
-            requestCounter.WithLabels("200").Inc(); // Incrementa contador para sucesso
+            requestCounter.WithLabels("202").Inc(); // Incrementa contador para sucesso
             return new OkObjectResult(result);
         }
         catch (Exception e)
