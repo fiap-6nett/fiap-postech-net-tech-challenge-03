@@ -45,7 +45,7 @@ public class ContatoController
     [OpenApiSecurity("function_key", SecuritySchemeType.ApiKey, Name = "code", In = OpenApiSecurityLocationType.Query)]
     [OpenApiParameter("id", In = ParameterLocation.Path, Required = true, Type = typeof(string), Description = "Id do Contato.")]
     [OpenApiResponseWithBody(HttpStatusCode.OK, "application/json", typeof(RemoverContatoCommandResult), Description = "The OK response")]
-    public async Task<IActionResult> ObterContatoPorId([HttpTrigger(AuthorizationLevel.Function, "Delete", Route = "v1/contato/id/{id}")] HttpRequest req, string id)
+    public async Task<IActionResult> ObterContatoPorId([HttpTrigger(AuthorizationLevel.Function, "Delete", Route = "v1/contato/{id}")] HttpRequest req, string id)
     {
         var histogram = "remover_contato_latency_seconds";
         var endPoint = "RemoverContato";
