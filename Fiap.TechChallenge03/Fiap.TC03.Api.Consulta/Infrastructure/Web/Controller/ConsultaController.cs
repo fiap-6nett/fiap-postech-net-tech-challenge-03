@@ -65,9 +65,9 @@ public class ConsultaController
     [OpenApiResponseWithBody(HttpStatusCode.OK, "application/json", typeof(ObterContatosPorDddResult), Description = "The OK response")]
     public async Task<IActionResult> ObterContatosPorDdd([HttpTrigger(AuthorizationLevel.Function, "get", Route = "v1/contato/ddd/{ddd}")] HttpRequest req, int ddd)
     {
-        var histogram = "criar_contato_latency_seconds";
-        var endPoint = "CriarContato";
-        var counterName = "criar_contato_requests_total";
+        var histogram = "consultar_contato_latency_seconds";
+        var endPoint = "ConsultarContato";
+        var counterName = "consultar_contato_requests_total";
 
         // Métrica personalizada para latência
         var timer = Metrics.CreateHistogram(histogram, $"Latência do endpoint {endPoint} em segundos").NewTimer();
@@ -106,9 +106,9 @@ public class ConsultaController
     [OpenApiResponseWithBody(HttpStatusCode.OK, "application/json", typeof(ObterContatoPorIdResult), Description = "The OK response")]
     public async Task<IActionResult> ObterContatoPorId([HttpTrigger(AuthorizationLevel.Function, "get", Route = "v1/contato/id/{id}")] HttpRequest req, string id)
     {
-        var histogram = "criar_contato_latency_seconds";
-        var endPoint = "CriarContato";
-        var counterName = "criar_contato_requests_total";
+        var histogram = "consultar_contato_latency_seconds";
+        var endPoint = "ConsultarContato";
+        var counterName = "consultar_contato_requests_total";
 
         // Métrica personalizada para latência
         var timer = Metrics.CreateHistogram(histogram, $"Latência do endpoint {endPoint} em segundos").NewTimer();

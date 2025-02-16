@@ -22,7 +22,8 @@ public class RemoverContatoCommandHandler : ICommandHandler<RemoverContatoComman
         var result = await _service.RemoverContatoAsync(new RemoverContatoRequest(Guid.Parse(commandRequest.Id)));
         return new RemoverContatoCommandResult
         {
-            Sucesso = result.Sucesso
+            CorrelationId = Guid.Parse(commandRequest.Id),
+            Message = "Solicitação recebida e será processada."
         };
     }
 

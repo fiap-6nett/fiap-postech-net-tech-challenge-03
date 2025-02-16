@@ -22,7 +22,8 @@ public class CriarContatoCommandHandler : ICommandHandler<CriarContatoCommand, C
         var result = await _service.CriarContatoAsync(new CriarContatoRequest(commandRequest.Nome, commandRequest.Telefone, commandRequest.Email, commandRequest.DDD));
         return new CriarContatoCommandResult
         {
-            CorrelationId = result.Contato.Id
+            CorrelationId = result.Contato.Id,
+            Message = "Solicitação recebida e será processada."
         };
     }
 

@@ -24,11 +24,8 @@ public class AtualizarContatoCommandHandler : ICommandHandler<AtualizarContatoCo
         var result = await _service.AtualizarContatoAsync(new AtualizarContatoRequest(Guid.Parse(commandRequest.Id), commandRequest.Nome, commandRequest.Telefone, commandRequest.Email, commandRequest.DDD));
         return new AtualizarContatoCommandResult
         {
-            Id = result.Contato.Id,
-            Nome = result.Contato.Nome,
-            Telefone = result.Contato.Telefone,
-            Email = result.Contato.Email,
-            DDD = result.Contato.DDD
+            CorrelationId = result.Contato.Id,
+            Message = "Solicitação recebida e será processada."
         };
     }
 

@@ -3,5 +3,6 @@
 namespace Fiap.TC03.Api.Exclusao.Domain.Contract;
 public class RemoverContatoCommandResult : CommandResult
 {
-    public bool Sucesso { get; set; }
+    public Guid CorrelationId { get; set; }
+    public DateTime DataRecebimento { get; set; } = DateTime.UtcNow;
 }
