@@ -1,8 +1,9 @@
 {
   "IsEncrypted": false,
   "Values": {
-    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=wesrhrfp;AccountKey=suachave;EndpointSuffix=core.windows.net",
-    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated"
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
+    "RabbitMqUri": "amqps://wesrhrfp:EgeNXUTA7cp9ownXvg8XOQESox2N9Rbc@toucan.lmq.cloudamqp.com/wesrhrfp"
   },
   "ConnectionStrings": {
     "DefaultConnection": "Server=mysql-fiap-techchallenge-54b6d47-alpha-5003.f.aivencloud.com;Port=12154;Database=defaultdb;User=avnadmin;Password=AVNS_z2edDgWWPxbU2kYW6o-;SslMode=Required;"
