@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Diagnostics.Metrics;
 using System.Net;
 using Fiap.TC03.Api.Consulta.Domain.Command.Handler;
 using Fiap.TC03.Api.Consulta.Domain.Contato.Request;
@@ -106,6 +107,9 @@ public class ConsultaController
     [OpenApiResponseWithBody(HttpStatusCode.OK, "application/json", typeof(ObterContatoPorIdResult), Description = "The OK response")]
     public async Task<IActionResult> ObterContatoPorId([HttpTrigger(AuthorizationLevel.Function, "get", Route = "v1/contato/id/{id}")] HttpRequest req, string id)
     {
+
+        _logger.LogInformation($"Acessou ObterContatoPorId. Entrada {id}");
+
         var histogram = "consultar_contato_latency_seconds";
         var endPoint = "ConsultarContato";
         var counterName = "consultar_contato_requests_total";
@@ -115,11 +119,12 @@ public class ConsultaController
 
         // Métrica personalizada para contagem de status
         var requestCounter = Metrics.CreateCounter(counterName, $"Total de requisições ao endpoint {endPoint}", new CounterConfiguration { LabelNames = new[] { "status" } });
-        
+
         try
         {
+        
             var stopwatch = Stopwatch.StartNew();
-            // Atualiza a métrica de uso de memória
+            //Atualiza a métrica de uso de memória
             MemoryUsageByEndpointGauge.WithLabels(endPoint).Set(Process.GetCurrentProcess().WorkingSet64);
             
             var command = new ObterContatoPorIdQueryRequest { Id = id };
