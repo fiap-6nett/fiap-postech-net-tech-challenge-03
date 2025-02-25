@@ -1,20 +1,47 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fiap.TC03.Api.Cadastro", "Fiap.TC03.Api.Cadastro\Fiap.TC03.Api.Cadastro.csproj", "{DB0412D0-7596-4B60-B872-0168F40022B6}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fiap.TC03.Api.Cadastro", "Fiap.TC03.Api.Cadastro\Fiap.TC03.Api.Cadastro.csproj", "{DB0412D0-7596-4B60-B872-0168F40022B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fiap.TC03.Api.Consulta", "Fiap.TC03.Api.Consulta\Fiap.TC03.Api.Consulta.csproj", "{96CF0F62-C3CD-4D55-9B6D-40F55F31B77C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fiap.TC03.Api.Consulta", "Fiap.TC03.Api.Consulta\Fiap.TC03.Api.Consulta.csproj", "{96CF0F62-C3CD-4D55-9B6D-40F55F31B77C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fiap.TC03.Api.Atualizacao", "Fiap.TC03.Api.Atualizacao\Fiap.TC03.Api.Atualizacao.csproj", "{C60F6ECF-5125-4498-93A8-4DC1CD07E463}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fiap.TC03.Api.Atualizacao", "Fiap.TC03.Api.Atualizacao\Fiap.TC03.Api.Atualizacao.csproj", "{C60F6ECF-5125-4498-93A8-4DC1CD07E463}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fiap.TC03.Api.Exclusao", "Fiap.TC03.Api.Exclusao\Fiap.TC03.Api.Exclusao.csproj", "{D0D5D0A9-0EE2-436C-A96C-37139A2FF81E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fiap.TC03.Api.Exclusao", "Fiap.TC03.Api.Exclusao\Fiap.TC03.Api.Exclusao.csproj", "{D0D5D0A9-0EE2-436C-A96C-37139A2FF81E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fiap.TC03.Worker.Cadastro", "Fiap.TC03.Worker.Cadastro\Fiap.TC03.Worker.Cadastro.csproj", "{ABC1290C-AE15-4BC8-A334-A6CEA7EBD9FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fiap.TC03.Worker.Cadastro", "Fiap.TC03.Worker.Cadastro\Fiap.TC03.Worker.Cadastro.csproj", "{ABC1290C-AE15-4BC8-A334-A6CEA7EBD9FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fiap.TC03.Worker.Atualizacao", "Fiap.TC03.Worker.Atualizacao\Fiap.TC03.Worker.Atualizacao.csproj", "{043C28A9-BDF1-41CE-97F2-AF855B4A72EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fiap.TC03.Worker.Atualizacao", "Fiap.TC03.Worker.Atualizacao\Fiap.TC03.Worker.Atualizacao.csproj", "{043C28A9-BDF1-41CE-97F2-AF855B4A72EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fiap.TC03.Worker.Exclusao", "Fiap.TC03.Worker.Exclusao\Fiap.TC03.Worker.Exclusao.csproj", "{EF090530-3A97-4706-A3AC-0165F285109D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fiap.TC03.Worker.Exclusao", "Fiap.TC03.Worker.Exclusao\Fiap.TC03.Worker.Exclusao.csproj", "{EF090530-3A97-4706-A3AC-0165F285109D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fiap.TC03.Test", "Fiap.TC03.Test\Fiap.TC03.Test.csproj", "{C43DD958-DF7B-4EE7-9611-DF6141A05854}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fiap.TC03.Test", "Fiap.TC03.Test\Fiap.TC03.Test.csproj", "{C43DD958-DF7B-4EE7-9611-DF6141A05854}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{97BF73A5-A965-42C2-8632-D959B77DFCF5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E87FC92D-7222-4652-A9DB-AC7514ACFC79}"
+	ProjectSection(SolutionItems) = preProject
+		..\.gitignore = ..\.gitignore
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{2FE6524C-04E3-4C6A-9D9B-962CC8A8F096}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presentation", "1 - Presentation", "{713949AB-76CB-4C05-837F-A95CE85E0698}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{EAEEFD2C-9075-4B06-8313-6F1E53C38D46}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{1D839D10-11FC-4E17-A762-53EDEBF54E84}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{096287AC-FE63-498E-979A-5B1072C1514B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fiap.TechChallenge.Domain", "source\Fiap.TechChallenge.Domain\Fiap.TechChallenge.Domain.csproj", "{E00225FB-75EB-4D81-A1CD-3301C4F816C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fiap.TechChallenge.Application", "source\Fiap.TechChallenge.Application\Fiap.TechChallenge.Application.csproj", "{88D392A6-8912-4530-B7AE-B7230996B295}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fiap.TechChallenge.Infrastructure", "source\Fiap.TechChallenge.Infrastructure\Fiap.TechChallenge.Infrastructure.csproj", "{E312A373-D390-4285-B14C-29BD65CFABF8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -54,5 +81,40 @@ Global
 		{C43DD958-DF7B-4EE7-9611-DF6141A05854}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C43DD958-DF7B-4EE7-9611-DF6141A05854}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C43DD958-DF7B-4EE7-9611-DF6141A05854}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E00225FB-75EB-4D81-A1CD-3301C4F816C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E00225FB-75EB-4D81-A1CD-3301C4F816C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E00225FB-75EB-4D81-A1CD-3301C4F816C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E00225FB-75EB-4D81-A1CD-3301C4F816C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88D392A6-8912-4530-B7AE-B7230996B295}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88D392A6-8912-4530-B7AE-B7230996B295}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88D392A6-8912-4530-B7AE-B7230996B295}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88D392A6-8912-4530-B7AE-B7230996B295}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E312A373-D390-4285-B14C-29BD65CFABF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E312A373-D390-4285-B14C-29BD65CFABF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E312A373-D390-4285-B14C-29BD65CFABF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E312A373-D390-4285-B14C-29BD65CFABF8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DB0412D0-7596-4B60-B872-0168F40022B6} = {713949AB-76CB-4C05-837F-A95CE85E0698}
+		{96CF0F62-C3CD-4D55-9B6D-40F55F31B77C} = {713949AB-76CB-4C05-837F-A95CE85E0698}
+		{C60F6ECF-5125-4498-93A8-4DC1CD07E463} = {713949AB-76CB-4C05-837F-A95CE85E0698}
+		{D0D5D0A9-0EE2-436C-A96C-37139A2FF81E} = {713949AB-76CB-4C05-837F-A95CE85E0698}
+		{ABC1290C-AE15-4BC8-A334-A6CEA7EBD9FE} = {713949AB-76CB-4C05-837F-A95CE85E0698}
+		{043C28A9-BDF1-41CE-97F2-AF855B4A72EF} = {713949AB-76CB-4C05-837F-A95CE85E0698}
+		{EF090530-3A97-4706-A3AC-0165F285109D} = {713949AB-76CB-4C05-837F-A95CE85E0698}
+		{C43DD958-DF7B-4EE7-9611-DF6141A05854} = {2FE6524C-04E3-4C6A-9D9B-962CC8A8F096}
+		{713949AB-76CB-4C05-837F-A95CE85E0698} = {97BF73A5-A965-42C2-8632-D959B77DFCF5}
+		{EAEEFD2C-9075-4B06-8313-6F1E53C38D46} = {97BF73A5-A965-42C2-8632-D959B77DFCF5}
+		{1D839D10-11FC-4E17-A762-53EDEBF54E84} = {97BF73A5-A965-42C2-8632-D959B77DFCF5}
+		{096287AC-FE63-498E-979A-5B1072C1514B} = {97BF73A5-A965-42C2-8632-D959B77DFCF5}
+		{E00225FB-75EB-4D81-A1CD-3301C4F816C6} = {1D839D10-11FC-4E17-A762-53EDEBF54E84}
+		{88D392A6-8912-4530-B7AE-B7230996B295} = {EAEEFD2C-9075-4B06-8313-6F1E53C38D46}
+		{E312A373-D390-4285-B14C-29BD65CFABF8} = {096287AC-FE63-498E-979A-5B1072C1514B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {12C25870-8C62-47FB-ADC2-03E923AC3AD1}
 	EndGlobalSection
 EndGlobal
