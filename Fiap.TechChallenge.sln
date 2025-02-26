@@ -3,21 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fiap.TechChallenge.Api.Create", "Fiap.TechChallenge.Api.Create\Fiap.TechChallenge.Api.Create.csproj", "{DB0412D0-7596-4B60-B872-0168F40022B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fiap.TechChallenge.Api.Create", "source\Fiap.TechChallenge.Api.Create\Fiap.TechChallenge.Api.Create.csproj", "{DB0412D0-7596-4B60-B872-0168F40022B6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fiap.TechChallenge.Api.Query", "Fiap.TechChallenge.Api.Query\Fiap.TechChallenge.Api.Query.csproj", "{96CF0F62-C3CD-4D55-9B6D-40F55F31B77C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fiap.TechChallenge.Api.Query", "source\Fiap.TechChallenge.Api.Query\Fiap.TechChallenge.Api.Query.csproj", "{96CF0F62-C3CD-4D55-9B6D-40F55F31B77C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fiap.TechChallenge.Api.Update", "Fiap.TechChallenge.Api.Update\Fiap.TechChallenge.Api.Update.csproj", "{C60F6ECF-5125-4498-93A8-4DC1CD07E463}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fiap.TechChallenge.Api.Update", "source\Fiap.TechChallenge.Api.Update\Fiap.TechChallenge.Api.Update.csproj", "{C60F6ECF-5125-4498-93A8-4DC1CD07E463}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fiap.TechChallenge.Api.Delete", "Fiap.TechChallenge.Api.Delete\Fiap.TechChallenge.Api.Delete.csproj", "{D0D5D0A9-0EE2-436C-A96C-37139A2FF81E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fiap.TechChallenge.Api.Delete", "source\Fiap.TechChallenge.Api.Delete\Fiap.TechChallenge.Api.Delete.csproj", "{D0D5D0A9-0EE2-436C-A96C-37139A2FF81E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fiap.TechChallenge.Worker.Create", "Fiap.TechChallenge.Worker.Create\Fiap.TechChallenge.Worker.Create.csproj", "{ABC1290C-AE15-4BC8-A334-A6CEA7EBD9FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fiap.TechChallenge.Worker.Create", "source\Fiap.TechChallenge.Worker.Create\Fiap.TechChallenge.Worker.Create.csproj", "{ABC1290C-AE15-4BC8-A334-A6CEA7EBD9FE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fiap.TechChallenge.Worker.Update", "Fiap.TechChallenge.Worker.Update\Fiap.TechChallenge.Worker.Update.csproj", "{043C28A9-BDF1-41CE-97F2-AF855B4A72EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fiap.TechChallenge.Worker.Update", "source\Fiap.TechChallenge.Worker.Update\Fiap.TechChallenge.Worker.Update.csproj", "{043C28A9-BDF1-41CE-97F2-AF855B4A72EF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fiap.TechChallenge.Worker.Delete", "Fiap.TechChallenge.Worker.Delete\Fiap.TechChallenge.Worker.Delete.csproj", "{EF090530-3A97-4706-A3AC-0165F285109D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fiap.TechChallenge.Worker.Delete", "source\Fiap.TechChallenge.Worker.Delete\Fiap.TechChallenge.Worker.Delete.csproj", "{EF090530-3A97-4706-A3AC-0165F285109D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fiap.TechChallenge.Tests", "Fiap.TechChallenge.Tests\Fiap.TechChallenge.Tests.csproj", "{C43DD958-DF7B-4EE7-9611-DF6141A05854}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fiap.TechChallenge.Tests", "source\Fiap.TechChallenge.Tests\Fiap.TechChallenge.Tests.csproj", "{C43DD958-DF7B-4EE7-9611-DF6141A05854}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{97BF73A5-A965-42C2-8632-D959B77DFCF5}"
 EndProject
