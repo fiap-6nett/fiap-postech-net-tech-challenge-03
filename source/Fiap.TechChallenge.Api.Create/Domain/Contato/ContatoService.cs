@@ -1,13 +1,13 @@
-﻿using Fiap.TC03.Api.Cadastro.Domain.Contato.Request;
-using Fiap.TC03.Api.Cadastro.Domain.Contato.Result;
-using Fiap.TC03.Api.Cadastro.Domain.DataBaseContext;
-using Fiap.TC03.Api.Cadastro.Infrastructure.Database;
-using Fiap.TC03.Api.Cadastro.Infrastructure.MessageBroker;
+﻿using Fiap.TechChallenge.Api.Create.Domain.Contato.Request;
+using Fiap.TechChallenge.Api.Create.Domain.Contato.Result;
+using Fiap.TechChallenge.Api.Create.Domain.DataBaseContext;
+using Fiap.TechChallenge.Api.Create.Infrastructure.Database;
+using Fiap.TechChallenge.Api.Create.Infrastructure.MessageBroker;
 using Fiap.TechChallenge.Foundation.Core.Exceptions;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
-namespace Fiap.TC03.Api.Cadastro.Domain.Contato;
+namespace Fiap.TechChallenge.Api.Create.Domain.Contato;
 
 public class ContatoService : IContatoService
 {

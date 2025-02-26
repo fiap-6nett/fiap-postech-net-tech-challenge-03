@@ -1,7 +1,7 @@
 ﻿using Fiap.TechChallenge.Foundation.Core.Domain;
 using Fiap.TechChallenge.Foundation.Core.Extensions;
 
-namespace Fiap.TC03.Api.Exclusao.Domain.DataBaseContext;
+namespace Fiap.TechChallenge.Api.Delete.Domain.DataBaseContext;
 
 
 /// <summary>

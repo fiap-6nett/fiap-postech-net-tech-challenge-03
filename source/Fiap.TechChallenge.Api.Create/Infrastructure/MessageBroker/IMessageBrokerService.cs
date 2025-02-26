@@ -1,4 +1,4 @@
-﻿namespace Fiap.TC03.Api.Cadastro.Infrastructure.MessageBroker;
+﻿namespace Fiap.TechChallenge.Api.Create.Infrastructure.MessageBroker;
 
 public interface IMessageBrokerService
 {

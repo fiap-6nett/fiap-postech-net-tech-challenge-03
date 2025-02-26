@@ -1,4 +1,4 @@
-﻿namespace Fiap.TC03.Api.Consulta.Domain.Contato.Request;
+﻿namespace Fiap.TechChallenge.Api.Query.Domain.Contato.Request;
 
 public class ObterContatosPorDddRequest
 {

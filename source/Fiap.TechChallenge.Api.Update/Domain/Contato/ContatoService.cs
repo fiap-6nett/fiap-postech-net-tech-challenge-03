@@ -1,12 +1,12 @@
-﻿using Fiap.TC03.Api.Atualizacao.Domain.Contato.Request;
-using Fiap.TC03.Api.Atualizacao.Domain.Contato.Result;
-using Fiap.TC03.Api.Atualizacao.Domain.DataBaseContext;
-using Fiap.TC03.Api.Atualizacao.Infrastructure.MessageBroker;
+﻿using Fiap.TechChallenge.Api.Update.Domain.Contato.Request;
+using Fiap.TechChallenge.Api.Update.Domain.Contato.Result;
+using Fiap.TechChallenge.Api.Update.Domain.DataBaseContext;
+using Fiap.TechChallenge.Api.Update.Infrastructure.MessageBroker;
 using Fiap.TechChallenge.Foundation.Core.Exceptions;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
-namespace Fiap.TC03.Api.Atualizacao.Domain.Contato;
+namespace Fiap.TechChallenge.Api.Update.Domain.Contato;
 
 public class ContatoService : IContatoService
 {

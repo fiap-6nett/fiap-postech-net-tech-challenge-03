@@ -1,7 +1,7 @@
 ﻿using Fiap.TechChallenge.Foundation.Core.Domain;
 using Fiap.TechChallenge.Foundation.Core.Extensions;
 
-namespace Fiap.TC03.Api.Atualizacao.Domain.DataBaseContext;
+namespace Fiap.TechChallenge.Api.Update.Domain.DataBaseContext;
 
 
 /// <summary>

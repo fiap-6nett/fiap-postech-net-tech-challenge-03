@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace Fiap.TC03.Api.Consulta.Domain.Contract.ObterContatoPorId;
+namespace Fiap.TechChallenge.Api.Query.Domain.Contract.ObterContatoPorId;
 
 /// <summary>
 ///     Validador para a requisição de obtenção de um contato por ID.

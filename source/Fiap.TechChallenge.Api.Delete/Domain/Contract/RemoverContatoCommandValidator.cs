@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace Fiap.TC03.Api.Exclusao.Domain.Contract;
+namespace Fiap.TechChallenge.Api.Delete.Domain.Contract;
 
 public class RemoverContatoCommandValidator : AbstractValidator<RemoverContatoCommand>
 {

@@ -1,6 +1,6 @@
-﻿using Fiap.TC03.Api.Cadastro.Domain.DataBaseContext;
+﻿using Fiap.TechChallenge.Api.Create.Domain.DataBaseContext;
 
-namespace Fiap.TC03.Api.Cadastro.Domain.Contato.Result;
+namespace Fiap.TechChallenge.Api.Create.Domain.Contato.Result;
 
 public class CriarContatoResult
 {

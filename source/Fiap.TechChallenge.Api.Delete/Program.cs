@@ -1,7 +1,7 @@
-using Fiap.TC03.Api.Exclusao.Domain.Command.Handler;
-using Fiap.TC03.Api.Exclusao.Domain.Contato;
-using Fiap.TC03.Api.Exclusao.Domain.Contract;
-using Fiap.TC03.Api.Exclusao.Infrastructure.MessageBroker;
+using Fiap.TechChallenge.Api.Delete.Domain.Command.Handler;
+using Fiap.TechChallenge.Api.Delete.Domain.Contato;
+using Fiap.TechChallenge.Api.Delete.Domain.Contract;
+using Fiap.TechChallenge.Api.Delete.Infrastructure.MessageBroker;
 using FluentValidation;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Builder;

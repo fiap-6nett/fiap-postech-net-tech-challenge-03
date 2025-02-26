@@ -1,7 +1,7 @@
-﻿using Fiap.TC03.Api.Consulta.Domain.Contato.Request;
-using Fiap.TC03.Api.Consulta.Domain.Result;
+﻿using Fiap.TechChallenge.Api.Query.Domain.Contato.Request;
+using Fiap.TechChallenge.Api.Query.Domain.Result;
 
-namespace Fiap.TC03.Api.Consulta.Domain.Contato;
+namespace Fiap.TechChallenge.Api.Query.Domain.Contato;
 
 public interface IContatoService
 {

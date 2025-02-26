@@ -1,7 +1,7 @@
-﻿using Fiap.TC03.Api.Cadastro.Domain.Contract.CriarContato;
+﻿using Fiap.TechChallenge.Api.Create.Domain.Contract.CriarContato;
 using FluentValidation.TestHelper;
 
-namespace Fiap.TC03.Test.ApiCadastro;
+namespace Fiap.TechChallenge.Test.ApiCadastro;
 
 public class CadastroValidatorTests
 {

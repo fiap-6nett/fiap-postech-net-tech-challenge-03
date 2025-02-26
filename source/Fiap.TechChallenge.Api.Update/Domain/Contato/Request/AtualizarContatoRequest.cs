@@ -1,4 +1,4 @@
-﻿namespace Fiap.TC03.Api.Atualizacao.Domain.Contato.Request;
+﻿namespace Fiap.TechChallenge.Api.Update.Domain.Contato.Request;
 
 public class AtualizarContatoRequest
 {

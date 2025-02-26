@@ -1,10 +1,10 @@
 ﻿using System.Text.Json.Nodes;
-using Fiap.TC03.Api.Cadastro.Domain.DataBaseContext;
+using Fiap.TechChallenge.Api.Create.Domain.DataBaseContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
-namespace Fiap.TC03.Api.Cadastro.Infrastructure.Database;
+namespace Fiap.TechChallenge.Api.Create.Infrastructure.Database;
 
 public class ContatoQueryStore : IContatoQueryStore
 {

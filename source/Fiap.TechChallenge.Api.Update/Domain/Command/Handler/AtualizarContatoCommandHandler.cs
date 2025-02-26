@@ -1,11 +1,11 @@
 ﻿using System.Text.Json.Serialization;
-using Fiap.TC03.Api.Atualizacao.Domain.Contato;
-using Fiap.TC03.Api.Atualizacao.Domain.Contato.Request;
-using Fiap.TC03.Api.Atualizacao.Domain.Contract;
+using Fiap.TechChallenge.Api.Update.Domain.Contato;
+using Fiap.TechChallenge.Api.Update.Domain.Contato.Request;
+using Fiap.TechChallenge.Api.Update.Domain.Contract;
 using Fiap.TechChallenge.Foundation.Core.Messaging.Commands;
 using Microsoft.Extensions.Logging;
 
-namespace Fiap.TC03.Api.Atualizacao.Domain.Command.Handler;
+namespace Fiap.TechChallenge.Api.Update.Domain.Command.Handler;
 
 public class AtualizarContatoCommandHandler : ICommandHandler<AtualizarContatoCommand, AtualizarContatoCommandResult>
 {

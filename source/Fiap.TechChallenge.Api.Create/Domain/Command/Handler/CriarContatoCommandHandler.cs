@@ -1,10 +1,10 @@
-﻿using Fiap.TC03.Api.Cadastro.Domain.Contato;
-using Fiap.TC03.Api.Cadastro.Domain.Contato.Request;
-using Fiap.TC03.Api.Cadastro.Domain.Contract.CriarContato;
+﻿using Fiap.TechChallenge.Api.Create.Domain.Contato;
+using Fiap.TechChallenge.Api.Create.Domain.Contato.Request;
+using Fiap.TechChallenge.Api.Create.Domain.Contract.CriarContato;
 using Fiap.TechChallenge.Foundation.Core.Messaging.Commands;
 using Microsoft.Extensions.Logging;
 
-namespace Fiap.TC03.Api.Cadastro.Domain.Command.Handler;
+namespace Fiap.TechChallenge.Api.Create.Domain.Command.Handler;
 
 public class CriarContatoCommandHandler : ICommandHandler<CriarContatoCommand, CriarContatoCommandResult>
 {

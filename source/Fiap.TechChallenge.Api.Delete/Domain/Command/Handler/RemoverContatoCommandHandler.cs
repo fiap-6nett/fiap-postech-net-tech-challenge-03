@@ -1,10 +1,10 @@
-﻿using Fiap.TC03.Api.Exclusao.Domain.Contato;
-using Fiap.TC03.Api.Exclusao.Domain.Contato.Request;
-using Fiap.TC03.Api.Exclusao.Domain.Contract;
+﻿using Fiap.TechChallenge.Api.Delete.Domain.Contato;
+using Fiap.TechChallenge.Api.Delete.Domain.Contato.Request;
+using Fiap.TechChallenge.Api.Delete.Domain.Contract;
 using Fiap.TechChallenge.Foundation.Core.Messaging.Commands;
 using Microsoft.Extensions.Logging;
 
-namespace Fiap.TC03.Api.Exclusao.Domain.Command.Handler;
+namespace Fiap.TechChallenge.Api.Delete.Domain.Command.Handler;
 
 public class RemoverContatoCommandHandler : ICommandHandler<RemoverContatoCommand, RemoverContatoCommandResult>
 {

@@ -1,12 +1,12 @@
-﻿using Fiap.TC03.Api.Exclusao.Domain.Contato.Request;
-using Fiap.TC03.Api.Exclusao.Domain.Contato.Result;
-using Fiap.TC03.Api.Exclusao.Domain.DataBaseContext;
-using Fiap.TC03.Api.Exclusao.Infrastructure.MessageBroker;
+﻿using Fiap.TechChallenge.Api.Delete.Domain.Contato.Request;
+using Fiap.TechChallenge.Api.Delete.Domain.Contato.Result;
+using Fiap.TechChallenge.Api.Delete.Domain.DataBaseContext;
+using Fiap.TechChallenge.Api.Delete.Infrastructure.MessageBroker;
 using Fiap.TechChallenge.Foundation.Core.Exceptions;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
-namespace Fiap.TC03.Api.Exclusao.Domain.Contato;
+namespace Fiap.TechChallenge.Api.Delete.Domain.Contato;
 
 public class ContatoService : IContatoService
 {

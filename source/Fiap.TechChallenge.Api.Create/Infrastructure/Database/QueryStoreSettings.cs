@@ -1,4 +1,4 @@
-﻿namespace Fiap.TC03.Api.Cadastro.Infrastructure.Database;
+﻿namespace Fiap.TechChallenge.Api.Create.Infrastructure.Database;
 
 public class CommandStoreSettings
 {

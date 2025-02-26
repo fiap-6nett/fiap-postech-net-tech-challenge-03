@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "Fiap.TC03.Api.Consulta": {
+    "Fiap.TechChallenge.Api.Query": {
       "commandName": "Project",
       "commandLineArgs": "--port 7145",
       "launchBrowser": false

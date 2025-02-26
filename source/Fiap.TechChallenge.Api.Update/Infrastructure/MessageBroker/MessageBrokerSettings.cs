@@ -1,6 +1,6 @@
 ﻿using RabbitMQ.Client;
 
-namespace Fiap.TC03.Api.Atualizacao.Infrastructure.MessageBroker;
+namespace Fiap.TechChallenge.Api.Update.Infrastructure.MessageBroker;
 
 public class MessageBrokerSettings
 {

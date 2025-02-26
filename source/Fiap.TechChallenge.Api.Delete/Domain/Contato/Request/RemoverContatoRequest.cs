@@ -1,4 +1,4 @@
-﻿namespace Fiap.TC03.Api.Exclusao.Domain.Contato.Request;
+﻿namespace Fiap.TechChallenge.Api.Delete.Domain.Contato.Request;
 
 public class RemoverContatoRequest
 {

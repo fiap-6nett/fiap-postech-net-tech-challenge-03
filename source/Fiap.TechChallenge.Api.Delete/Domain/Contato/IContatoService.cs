@@ -1,7 +1,7 @@
-﻿using Fiap.TC03.Api.Exclusao.Domain.Contato.Request;
-using Fiap.TC03.Api.Exclusao.Domain.Contato.Result;
+﻿using Fiap.TechChallenge.Api.Delete.Domain.Contato.Request;
+using Fiap.TechChallenge.Api.Delete.Domain.Contato.Result;
 
-namespace Fiap.TC03.Api.Exclusao.Domain.Contato;
+namespace Fiap.TechChallenge.Api.Delete.Domain.Contato;
 
 public interface IContatoService
 {

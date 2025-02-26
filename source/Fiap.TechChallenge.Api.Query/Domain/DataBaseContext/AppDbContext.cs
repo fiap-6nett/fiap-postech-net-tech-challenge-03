@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace Fiap.TC03.Api.Consulta.Domain.DataBaseContext;
+namespace Fiap.TechChallenge.Api.Query.Domain.DataBaseContext;
 
 public class AppDbContext : DbContext
 {

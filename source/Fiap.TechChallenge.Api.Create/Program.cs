@@ -1,9 +1,9 @@
-using Fiap.TC03.Api.Cadastro.Domain.Command.Handler;
-using Fiap.TC03.Api.Cadastro.Domain.Contato;
-using Fiap.TC03.Api.Cadastro.Domain.Contract.CriarContato;
-using Fiap.TC03.Api.Cadastro.Domain.DataBaseContext;
-using Fiap.TC03.Api.Cadastro.Infrastructure.Database;
-using Fiap.TC03.Api.Cadastro.Infrastructure.MessageBroker;
+using Fiap.TechChallenge.Api.Create.Domain.Command.Handler;
+using Fiap.TechChallenge.Api.Create.Domain.Contato;
+using Fiap.TechChallenge.Api.Create.Domain.Contract.CriarContato;
+using Fiap.TechChallenge.Api.Create.Domain.DataBaseContext;
+using Fiap.TechChallenge.Api.Create.Infrastructure.Database;
+using Fiap.TechChallenge.Api.Create.Infrastructure.MessageBroker;
 using FluentValidation;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Abstractions;

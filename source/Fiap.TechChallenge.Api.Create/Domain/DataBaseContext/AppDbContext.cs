@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace Fiap.TC03.Api.Cadastro.Domain.DataBaseContext;
+namespace Fiap.TechChallenge.Api.Create.Domain.DataBaseContext;
 
 public class AppDbContext : DbContext
 {

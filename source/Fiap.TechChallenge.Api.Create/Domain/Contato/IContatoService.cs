@@ -1,7 +1,7 @@
-﻿using Fiap.TC03.Api.Cadastro.Domain.Contato.Request;
-using Fiap.TC03.Api.Cadastro.Domain.Contato.Result;
+﻿using Fiap.TechChallenge.Api.Create.Domain.Contato.Request;
+using Fiap.TechChallenge.Api.Create.Domain.Contato.Result;
 
-namespace Fiap.TC03.Api.Cadastro.Domain.Contato;
+namespace Fiap.TechChallenge.Api.Create.Domain.Contato;
 
 public interface IContatoService
 {

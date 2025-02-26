@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "Fiap.TC03.Api.Cadastro": {
+    "Fiap.TechChallenge.Api.Create": {
       "commandName": "Project",
       "commandLineArgs": "--port 7084",
       "launchBrowser": false

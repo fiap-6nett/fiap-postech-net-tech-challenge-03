@@ -1,4 +1,4 @@
-﻿namespace Fiap.TC03.Api.Cadastro.Domain.Contato.Request;
+﻿namespace Fiap.TechChallenge.Api.Create.Domain.Contato.Request;
 
 public class CriarContatoRequest
 {

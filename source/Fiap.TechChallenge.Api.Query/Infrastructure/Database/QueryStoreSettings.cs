@@ -1,4 +1,4 @@
-﻿namespace Fiap.TC03.Api.Consulta.Infrastructure.Database;
+﻿namespace Fiap.TechChallenge.Api.Query.Infrastructure.Database;
 
 public class CommandStoreSettings
 {

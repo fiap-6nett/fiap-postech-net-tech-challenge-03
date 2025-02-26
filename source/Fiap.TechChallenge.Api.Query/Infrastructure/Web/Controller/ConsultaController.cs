@@ -1,11 +1,11 @@
 ﻿using System.Diagnostics;
 using System.Diagnostics.Metrics;
 using System.Net;
-using Fiap.TC03.Api.Consulta.Domain.Command.Handler;
-using Fiap.TC03.Api.Consulta.Domain.Contato.Request;
-using Fiap.TC03.Api.Consulta.Domain.Contract.ObterContatoPorId;
-using Fiap.TC03.Api.Consulta.Domain.Contract.ObterContatosPorDdd;
-using Fiap.TC03.Api.Consulta.Domain.Result;
+using Fiap.TechChallenge.Api.Query.Domain.Command.Handler;
+using Fiap.TechChallenge.Api.Query.Domain.Contato.Request;
+using Fiap.TechChallenge.Api.Query.Domain.Contract.ObterContatoPorId;
+using Fiap.TechChallenge.Api.Query.Domain.Contract.ObterContatosPorDdd;
+using Fiap.TechChallenge.Api.Query.Domain.Result;
 using Fiap.TechChallenge.Foundation.Core.Enumerated;
 using Fiap.TechChallenge.Foundation.Core.Models;
 using FluentValidation;
@@ -19,7 +19,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Prometheus;
 
-namespace Fiap.TC03.Api.Consulta.Infrastructure.Web.Controller.v1;
+namespace Fiap.TechChallenge.Api.Query.Infrastructure.Web.Controller.v1;
 
 public class ConsultaController
 {

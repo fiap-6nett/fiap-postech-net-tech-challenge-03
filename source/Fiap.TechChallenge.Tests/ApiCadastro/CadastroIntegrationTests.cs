@@ -1,9 +1,9 @@
-﻿using Fiap.TC03.Api.Cadastro.Infrastructure.MessageBroker;
+﻿using Fiap.TechChallenge.Api.Create.Infrastructure.MessageBroker;
 using Microsoft.Extensions.Logging;
 using Moq;
 using RabbitMQ.Client;
 
-namespace Fiap.TC03.Test.ApiCadastro;
+namespace Fiap.TechChallenge.Test.ApiCadastro;
 
 public class CadastroIntegrationTests
 {

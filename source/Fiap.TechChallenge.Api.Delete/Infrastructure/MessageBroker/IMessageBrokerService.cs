@@ -1,4 +1,4 @@
-﻿namespace Fiap.TC03.Api.Exclusao.Infrastructure.MessageBroker;
+﻿namespace Fiap.TechChallenge.Api.Delete.Infrastructure.MessageBroker;
 
 public interface IMessageBrokerService
 {

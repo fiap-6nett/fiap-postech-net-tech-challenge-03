@@ -1,6 +1,6 @@
-﻿using Fiap.TC03.Api.Atualizacao.Domain.DataBaseContext;
+﻿using Fiap.TechChallenge.Api.Update.Domain.DataBaseContext;
 
-namespace Fiap.TC03.Api.Atualizacao.Domain.Contato.Result;
+namespace Fiap.TechChallenge.Api.Update.Domain.Contato.Result;
 
 public class AtualizarContatoResult
 {

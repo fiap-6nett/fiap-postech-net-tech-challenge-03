@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Net;
-using Fiap.TC03.Api.Atualizacao.Domain.Command.Handler;
-using Fiap.TC03.Api.Atualizacao.Domain.Contract;
+using Fiap.TechChallenge.Api.Update.Domain.Command.Handler;
+using Fiap.TechChallenge.Api.Update.Domain.Contract;
 using Fiap.TechChallenge.Foundation.Core.Models;
 using FluentValidation;
 using Microsoft.AspNetCore.Http;
@@ -14,7 +14,7 @@ using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 using Prometheus;
 
-namespace Fiap.TC03.Api.Atualizacao.Infrastructure.Web.Controller;
+namespace Fiap.TechChallenge.Api.Update.Infrastructure.Web.Controller;
 
 public class ContatoController
 {

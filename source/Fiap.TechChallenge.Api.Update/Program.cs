@@ -1,7 +1,7 @@
-using Fiap.TC03.Api.Atualizacao.Domain.Command.Handler;
-using Fiap.TC03.Api.Atualizacao.Domain.Contato;
-using Fiap.TC03.Api.Atualizacao.Domain.Contract;
-using Fiap.TC03.Api.Atualizacao.Infrastructure.MessageBroker;
+using Fiap.TechChallenge.Api.Update.Domain.Command.Handler;
+using Fiap.TechChallenge.Api.Update.Domain.Contato;
+using Fiap.TechChallenge.Api.Update.Domain.Contract;
+using Fiap.TechChallenge.Api.Update.Infrastructure.MessageBroker;
 using FluentValidation;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Builder;

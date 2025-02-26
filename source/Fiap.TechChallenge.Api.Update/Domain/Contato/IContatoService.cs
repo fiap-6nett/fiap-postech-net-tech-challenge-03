@@ -1,7 +1,7 @@
-﻿using Fiap.TC03.Api.Atualizacao.Domain.Contato.Request;
-using Fiap.TC03.Api.Atualizacao.Domain.Contato.Result;
+﻿using Fiap.TechChallenge.Api.Update.Domain.Contato.Request;
+using Fiap.TechChallenge.Api.Update.Domain.Contato.Result;
 
-namespace Fiap.TC03.Api.Atualizacao.Domain.Contato;
+namespace Fiap.TechChallenge.Api.Update.Domain.Contato;
 
 public interface IContatoService
 {

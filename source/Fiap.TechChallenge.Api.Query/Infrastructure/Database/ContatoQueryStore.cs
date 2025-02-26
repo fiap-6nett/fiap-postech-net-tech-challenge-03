@@ -1,8 +1,8 @@
-﻿using Fiap.TC03.Api.Consulta.Domain.DataBaseContext;
+﻿using Fiap.TechChallenge.Api.Query.Domain.DataBaseContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace Fiap.TC03.Api.Consulta.Infrastructure.Database;
+namespace Fiap.TechChallenge.Api.Query.Infrastructure.Database;
 
 public class ContatoQueryStore : IContatoQueryStore
 {

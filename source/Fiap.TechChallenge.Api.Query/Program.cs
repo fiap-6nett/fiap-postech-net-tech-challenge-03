@@ -1,9 +1,9 @@
-using Fiap.TC03.Api.Consulta.Domain.Command.Handler;
-using Fiap.TC03.Api.Consulta.Domain.Contato;
-using Fiap.TC03.Api.Consulta.Domain.Contract.ObterContatoPorId;
-using Fiap.TC03.Api.Consulta.Domain.Contract.ObterContatosPorDdd;
-using Fiap.TC03.Api.Consulta.Domain.DataBaseContext;
-using Fiap.TC03.Api.Consulta.Infrastructure.Database;
+using Fiap.TechChallenge.Api.Query.Domain.Command.Handler;
+using Fiap.TechChallenge.Api.Query.Domain.Contato;
+using Fiap.TechChallenge.Api.Query.Domain.Contract.ObterContatoPorId;
+using Fiap.TechChallenge.Api.Query.Domain.Contract.ObterContatosPorDdd;
+using Fiap.TechChallenge.Api.Query.Domain.DataBaseContext;
+using Fiap.TechChallenge.Api.Query.Infrastructure.Database;
 using FluentValidation;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Abstractions;

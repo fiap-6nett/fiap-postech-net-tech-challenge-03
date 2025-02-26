@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Net;
-using Fiap.TC03.Api.Cadastro.Domain.Command.Handler;
-using Fiap.TC03.Api.Cadastro.Domain.Contract.CriarContato;
+using Fiap.TechChallenge.Api.Create.Domain.Command.Handler;
+using Fiap.TechChallenge.Api.Create.Domain.Contract.CriarContato;
 using Fiap.TechChallenge.Foundation.Core.Models;
 using FluentValidation;
 using Microsoft.AspNetCore.Http;
@@ -14,7 +14,7 @@ using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 using Prometheus;
 
-namespace Fiap.TC03.Api.Cadastro.Infrastructure.Web.Controller;
+namespace Fiap.TechChallenge.Api.Create.Infrastructure.Web.Controller;
 
 public class CadastroController
 {

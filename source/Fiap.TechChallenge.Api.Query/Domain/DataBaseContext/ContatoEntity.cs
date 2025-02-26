@@ -1,7 +1,7 @@
 ﻿using Fiap.TechChallenge.Foundation.Core.Domain;
 using Fiap.TechChallenge.Foundation.Core.Extensions;
 
-namespace Fiap.TC03.Api.Consulta.Domain.DataBaseContext;
+namespace Fiap.TechChallenge.Api.Query.Domain.DataBaseContext;
 
 /// <summary>
 ///     Representa a entidade Contato.

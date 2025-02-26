@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "Fiap.TC03.Api.Atualizacao": {
+    "Fiap.TechChallenge.Api.Update": {
       "commandName": "Project",
       "commandLineArgs": "--port 7294",
       "launchBrowser": false

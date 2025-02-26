@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "Fiap.TC03.Worker.Atualizacao": {
+    "Fiap.TechChallenge.Worker.Update": {
       "commandName": "Project",
       "commandLineArgs": "--port 7205",
       "launchBrowser": false

@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace Fiap.TC03.Api.Consulta.Domain.Contract.ObterContatosPorDdd;
+namespace Fiap.TechChallenge.Api.Query.Domain.Contract.ObterContatosPorDdd;
 
 /// <summary>
 ///     Validador para a requisição de obtenção de contatos por DDD.

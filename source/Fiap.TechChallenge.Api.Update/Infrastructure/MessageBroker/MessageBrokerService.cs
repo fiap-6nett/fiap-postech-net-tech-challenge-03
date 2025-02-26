@@ -6,7 +6,7 @@ using Polly;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Exceptions;
 
-namespace Fiap.TC03.Api.Atualizacao.Infrastructure.MessageBroker;
+namespace Fiap.TechChallenge.Api.Update.Infrastructure.MessageBroker;
 
 public class MessageBrokerService : IMessageBrokerService
 {

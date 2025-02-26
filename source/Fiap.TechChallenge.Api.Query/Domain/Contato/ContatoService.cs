@@ -1,11 +1,11 @@
-﻿using Fiap.TC03.Api.Consulta.Domain.Contato.Request;
-using Fiap.TC03.Api.Consulta.Domain.DataBaseContext;
-using Fiap.TC03.Api.Consulta.Domain.Result;
-using Fiap.TC03.Api.Consulta.Infrastructure.Database;
+﻿using Fiap.TechChallenge.Api.Query.Domain.Contato.Request;
+using Fiap.TechChallenge.Api.Query.Domain.DataBaseContext;
+using Fiap.TechChallenge.Api.Query.Domain.Result;
+using Fiap.TechChallenge.Api.Query.Infrastructure.Database;
 using Fiap.TechChallenge.Foundation.Core.Exceptions;
 using Microsoft.Extensions.Logging;
 
-namespace Fiap.TC03.Api.Consulta.Domain.Contato;
+namespace Fiap.TechChallenge.Api.Query.Domain.Contato;
 
 public class ContatoService : IContatoService
 {

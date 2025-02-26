@@ -1,6 +1,6 @@
-﻿using Fiap.TC03.Api.Consulta.Domain.DataBaseContext;
+﻿using Fiap.TechChallenge.Api.Query.Domain.DataBaseContext;
 
-namespace Fiap.TC03.Api.Consulta.Domain.Result;
+namespace Fiap.TechChallenge.Api.Query.Domain.Result;
 
 public class ObterContatoPorIdResult
 {

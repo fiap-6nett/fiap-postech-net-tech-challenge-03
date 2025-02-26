@@ -1,10 +1,10 @@
-﻿using Fiap.TC03.Api.Consulta.Domain.Contato;
-using Fiap.TC03.Api.Consulta.Domain.Contato.Request;
-using Fiap.TC03.Api.Consulta.Domain.Contract.ObterContatoPorId;
+﻿using Fiap.TechChallenge.Api.Query.Domain.Contato;
+using Fiap.TechChallenge.Api.Query.Domain.Contato.Request;
+using Fiap.TechChallenge.Api.Query.Domain.Contract.ObterContatoPorId;
 using Fiap.TechChallenge.Foundation.Core.Messaging.Queries;
 using Microsoft.Extensions.Logging;
 
-namespace Fiap.TC03.Api.Consulta.Domain.Command.Handler;
+namespace Fiap.TechChallenge.Api.Query.Domain.Command.Handler;
 
 public class ObterContatoPorIdQueryHandler : IQueryHandler<ObterContatoPorIdQueryRequest, ObterContatoPorIdQueryResult>
 {

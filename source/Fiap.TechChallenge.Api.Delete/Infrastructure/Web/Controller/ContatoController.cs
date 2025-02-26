@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Net;
-using Fiap.TC03.Api.Exclusao.Domain.Command.Handler;
-using Fiap.TC03.Api.Exclusao.Domain.Contract;
+using Fiap.TechChallenge.Api.Delete.Domain.Command.Handler;
+using Fiap.TechChallenge.Api.Delete.Domain.Contract;
 using Fiap.TechChallenge.Foundation.Core.Models;
 using FluentValidation;
 using Microsoft.AspNetCore.Http;
@@ -13,7 +13,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Prometheus;
 
-namespace Fiap.TC03.Api.Exclusao.Infrastructure.Web.Controller;
+namespace Fiap.TechChallenge.Api.Delete.Infrastructure.Web.Controller;
 
 public class ContatoController
 {

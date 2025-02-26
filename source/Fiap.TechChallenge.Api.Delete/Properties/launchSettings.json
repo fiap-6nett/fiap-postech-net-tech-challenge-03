@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "Fiap.TC03.Api.Exclusao": {
+    "Fiap.TechChallenge.Api.Delete": {
       "commandName": "Project",
       "commandLineArgs": "--port 7160",
       "launchBrowser": false
