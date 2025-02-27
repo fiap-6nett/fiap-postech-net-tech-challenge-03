@@ -2,8 +2,8 @@
 using Fiap.TechChallenge.Core.Data;
 using Fiap.TechChallenge.Core.Data.QueryStores;
 using Fiap.TechChallenge.Core.Data.Settings;
-using Fiap.TechChallenge.Core.Handlers;
 using Fiap.TechChallenge.Core.Handlers.CommandHandlers;
+using Fiap.TechChallenge.Core.Handlers.QueryHandlers;
 using Fiap.TechChallenge.Core.Messaging;
 using Fiap.TechChallenge.Core.Services;
 using FluentValidation;
@@ -35,9 +35,13 @@ namespace Fiap.TechChallenge.Core.Extensions
 
             services.AddTransient<CriarContatoCommandHandler>();
             services.AddTransient<RemoverContatoCommandHandler>();
+            services.AddTransient<ObterContatosPorDddQueryHandler>();
+            services.AddTransient<ObterContatoPorIdQueryHandler>();
 
             services.AddValidatorsFromAssemblyContaining<CriarContatoCommandValidator>();
             services.AddValidatorsFromAssemblyContaining<RemoverContatoCommandValidator>();
+            services.AddTransient<ObterContatosPorDddQueryHandler>();
+            services.AddTransient<ObterContatoPorIdQueryHandler>();
 
             #endregion
 

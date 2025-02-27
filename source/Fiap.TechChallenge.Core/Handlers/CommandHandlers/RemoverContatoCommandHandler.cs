@@ -5,7 +5,7 @@ using Fiap.TechChallenge.Core.Services;
 using Fiap.TechChallenge.Foundation.Core.Messaging.Commands;
 using Microsoft.Extensions.Logging;
 
-namespace Fiap.TechChallenge.Core.Handlers
+namespace Fiap.TechChallenge.Core.Handlers.CommandHandlers
 {
     public class RemoverContatoCommandHandler : ICommandHandler<RemoverContatoCommand, RemoverContatoCommandResult>
     {

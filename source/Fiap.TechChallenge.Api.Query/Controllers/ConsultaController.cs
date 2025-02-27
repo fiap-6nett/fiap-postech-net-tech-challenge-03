@@ -1,12 +1,6 @@
-﻿using System.Diagnostics;
-using System.Diagnostics.Metrics;
-using System.Net;
-using Fiap.TechChallenge.Api.Query.Domain.Command.Handler;
-using Fiap.TechChallenge.Api.Query.Domain.Contato.Request;
-using Fiap.TechChallenge.Api.Query.Domain.Contract.ObterContatoPorId;
-using Fiap.TechChallenge.Api.Query.Domain.Contract.ObterContatosPorDdd;
-using Fiap.TechChallenge.Api.Query.Domain.Result;
-using Fiap.TechChallenge.Foundation.Core.Enumerated;
+﻿using Fiap.TechChallenge.Core.Contracts.Queries;
+using Fiap.TechChallenge.Core.Contracts.Results;
+using Fiap.TechChallenge.Core.Handlers.QueryHandlers;
 using Fiap.TechChallenge.Foundation.Core.Models;
 using FluentValidation;
 using Microsoft.AspNetCore.Http;
@@ -15,11 +9,12 @@ using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Attributes;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Enums;
 using Microsoft.Extensions.Logging;
-using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Prometheus;
+using System.Diagnostics;
+using System.Net;
 
-namespace Fiap.TechChallenge.Api.Query.Infrastructure.Web.Controller.v1;
+namespace Fiap.TechChallenge.Api.Query.Controllers;
 
 public class ConsultaController
 {
@@ -29,15 +24,15 @@ public class ConsultaController
         "para melhor gerenciamento dos dados. " +
         "Os contatos são retornados com suas respectivas informações, incluindo nome, telefone, e-mail e DDD. " +
         "Se nenhum contato estiver cadastrado, retorna uma lista vazia.";
-    
+
     private const string DescriptionObterContatoPorId =
         "Obtém os detalhes de um contato específico com base no identificador fornecido. " +
         "Esta operação consulta o contato associado ao ID fornecido e valida a entrada. " +
         "Se o contato for encontrado, suas informações serão retornadas. " +
         "Caso contrário, se o identificador for inválido ou o contato não existir, um erro apropriado será retornado.";
 
-    
-    
+
+
     private static readonly Gauge MemoryUsageByEndpointGauge = Metrics.CreateGauge("api_memory_usage_by_endpoint_bytes", "Uso de memória da API por endpoint em bytes", new GaugeConfiguration
     {
         LabelNames = new[] { "endpoint" } // Usar 'endpoint' como label para diferenciar os diferentes endpoints
@@ -58,7 +53,7 @@ public class ConsultaController
         _validatorObterContatoPorIdQuery = validatorObterContatoPorIdQuery;
         _validatorObterContatosPorDddQuery = validatorObterContatosPorDddQuery;
     }
-    
+
     [Function("ObterContatosPorDdd")]
     [OpenApiOperation("ObterContatosPorDdd", "Fiap", Description = DescriptionListagem)]
     [OpenApiSecurity("function_key", SecuritySchemeType.ApiKey, Name = "code", In = OpenApiSecurityLocationType.Query)]
@@ -75,17 +70,17 @@ public class ConsultaController
 
         // Métrica personalizada para contagem de status
         var requestCounter = Metrics.CreateCounter(counterName, $"Total de requisições ao endpoint {endPoint}", new CounterConfiguration { LabelNames = new[] { "status" } });
-        
+
         try
         {
             var stopwatch = Stopwatch.StartNew();
             // Atualiza a métrica de uso de memória
             MemoryUsageByEndpointGauge.WithLabels(endPoint).Set(Process.GetCurrentProcess().WorkingSet64);
-            
-            var command = new ObterContatosPorDddQueryRequest{Ddd = ddd};
+
+            var command = new ObterContatosPorDddQueryRequest { Ddd = ddd };
             await _validatorObterContatosPorDddQuery.ValidateAndThrowAsync(command);
             var result = await _obterContatosPorDddQueryHandler.Handle(command);
-            
+
             stopwatch.Stop();
             timer.ObserveDuration(); // Registra o tempo no Prometheus
             requestCounter.WithLabels("202").Inc(); // Incrementa contador para sucesso
@@ -99,7 +94,7 @@ public class ConsultaController
             return new BadRequestObjectResult(new ErrorResponse(e.Message));
         }
     }
-    
+
     [Function("ObterContatoPorId")]
     [OpenApiOperation("ObterContatoPorId", "Fiap", Description = DescriptionObterContatoPorId)]
     [OpenApiSecurity("function_key", SecuritySchemeType.ApiKey, Name = "code", In = OpenApiSecurityLocationType.Query)]
@@ -122,15 +117,15 @@ public class ConsultaController
 
         try
         {
-        
+
             var stopwatch = Stopwatch.StartNew();
             //Atualiza a métrica de uso de memória
             MemoryUsageByEndpointGauge.WithLabels(endPoint).Set(Process.GetCurrentProcess().WorkingSet64);
-            
+
             var command = new ObterContatoPorIdQueryRequest { Id = id };
             await _validatorObterContatoPorIdQuery.ValidateAndThrowAsync(command);
             var result = await _obterContatoPorIdQueryHandler.Handle(command);
-            
+
             stopwatch.Stop();
             timer.ObserveDuration(); // Registra o tempo no Prometheus
             requestCounter.WithLabels("200").Inc(); // Incrementa contador para sucesso
@@ -144,6 +139,6 @@ public class ConsultaController
             return new BadRequestObjectResult(new ErrorResponse(e.Message));
         }
     }
-    
-    
+
+
 }

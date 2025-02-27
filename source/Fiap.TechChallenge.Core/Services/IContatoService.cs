@@ -7,5 +7,7 @@ namespace Fiap.TechChallenge.Core.Services
     {
         Task<CriarContatoResult> CriarContatoAsync(CriarContatoRequest request);
         Task<RemoverContatoResult> RemoverContatoAsync(RemoverContatoRequest request);
+        Task<ObterContatoPorIdResult> ObterContatoPorIdAsync(ObterContatoPorIdRequest request);
+        Task<ObterContatosPorDddResult> ObterContatosPorDddAsync(ObterContatosPorDddRequest request);
     }
 }

@@ -1,6 +1,6 @@
 ﻿using Fiap.TechChallenge.Core.Contracts.Commands;
 using Fiap.TechChallenge.Core.Contracts.Commands.CommandResults;
-using Fiap.TechChallenge.Core.Handlers;
+using Fiap.TechChallenge.Core.Handlers.CommandHandlers;
 using Fiap.TechChallenge.Foundation.Core.Models;
 using FluentValidation;
 using Microsoft.AspNetCore.Http;
