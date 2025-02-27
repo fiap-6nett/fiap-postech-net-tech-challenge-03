@@ -1,4 +1,5 @@
 ﻿using Fiap.TechChallenge.Core.Contracts.Requests;
+using Fiap.TechChallenge.Core.Data.CommandStores;
 using Fiap.TechChallenge.Core.Services;
 using Fiap.TechChallenge.Worker.Delete.DTOs;
 using Microsoft.Azure.Functions.Worker;
@@ -12,15 +13,15 @@ namespace Fiap.TechChallenge.Worker.Delete.QueueFunctions
     public class RemoverContatoQueueFunction
     {
         private readonly ILogger<RemoverContatoQueueFunction> _logger;
-        private readonly IContatoService _service;
+        private readonly IContatoCommandStore _contatoCommandStore;
 
         private const string RabbitMqUri = "amqps://wesrhrfp:EgeNXUTA7cp9ownXvg8XOQESox2N9Rbc@toucan.lmq.cloudamqp.com/wesrhrfp";
         private const string QueueName = "fiap-remover";
 
-        public RemoverContatoQueueFunction(ILogger<RemoverContatoQueueFunction> logger, IContatoService service)
+        public RemoverContatoQueueFunction(ILogger<RemoverContatoQueueFunction> logger, IContatoCommandStore contatoCommandStore)
         {
             _logger = logger;
-            _service = service;
+            _contatoCommandStore = contatoCommandStore;
         }
 
         [Function("RemoverContatoQueueFunction")]
@@ -48,13 +49,13 @@ namespace Fiap.TechChallenge.Worker.Delete.QueueFunctions
                     return;
                 }
 
-                var removerResult = await _service.RemoverContatoAsync(
-                    new RemoverContatoRequest(contato.Id));
+                bool sucesso = await _contatoCommandStore.RemoverContatoAsync(contato.Id);
 
-                if (removerResult?.Sucesso == true)
+                if (sucesso)
                 {
                     _logger.LogInformation($"Contato {contato.Id} removido");
-                } else
+                }
+                else
                 {
                     _logger.LogWarning($"Contato {contato.Id} não pôde ser removido");
                 }

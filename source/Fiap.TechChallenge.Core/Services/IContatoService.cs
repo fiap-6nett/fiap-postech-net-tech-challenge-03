@@ -14,11 +14,5 @@ namespace Fiap.TechChallenge.Core.Services
         Task<AtualizarContatoResult> AtualizarContatoQueueAsync(AtualizarContatoRequest request);
 
         #endregion
-
-        #region Persistence Methods
-
-        Task<RemoverContatoResult> RemoverContatoAsync(RemoverContatoRequest request);
-
-        #endregion
     }
 }

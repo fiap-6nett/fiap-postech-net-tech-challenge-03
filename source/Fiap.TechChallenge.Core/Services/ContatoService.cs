@@ -172,43 +172,5 @@ namespace Fiap.TechChallenge.Core.Services
         }
 
         #endregion
-
-        #region Persistence Methods
-
-        /// <summary>
-        /// Remove definitivamente o contato do banco de dados.
-        /// </summary>
-        public async Task<RemoverContatoResult> RemoverContatoAsync(RemoverContatoRequest request)
-        {
-            _logger.LogInformation("Iniciando remoção definitiva do contato com ID: {ContatoId}", request.Id);
-            try
-            {
-                ArgumentNullException.ThrowIfNull(request, nameof(request));
-
-                bool sucesso = await _contatoCommandStore.RemoverContatoAsync(request.Id);
-                if (sucesso)
-                {
-                    _logger.LogInformation("Contato com ID {ContatoId} removido definitivamente.", request.Id);
-                }
-                else
-                {
-                    _logger.LogWarning("Falha ao remover definitivamente o contato com ID {ContatoId}.", request.Id);
-                }
-
-                return new RemoverContatoResult { Sucesso = sucesso };
-            }
-            catch (BusinessException ex)
-            {
-                _logger.LogError(ex, "Erro ao remover definitivamente o contato: {Mensagem}", ex.Message);
-                throw;
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Erro ao remover definitivamente o contato: {Mensagem}", ex.Message);
-                throw new Exception("Erro ao remover definitivamente o contato: " + ex.Message, ex);
-            }
-        }
-
-        #endregion
     }
 }
