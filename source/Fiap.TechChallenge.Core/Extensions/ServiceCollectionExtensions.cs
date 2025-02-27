@@ -2,6 +2,7 @@
 using Fiap.TechChallenge.Core.Data;
 using Fiap.TechChallenge.Core.Data.QueryStores;
 using Fiap.TechChallenge.Core.Data.Settings;
+using Fiap.TechChallenge.Core.Handlers;
 using Fiap.TechChallenge.Core.Handlers.CommandHandlers;
 using Fiap.TechChallenge.Core.Messaging;
 using Fiap.TechChallenge.Core.Services;
@@ -33,8 +34,10 @@ namespace Fiap.TechChallenge.Core.Extensions
             services.AddTransient<IContatoQueryStore, ContatoQueryStore>();
 
             services.AddTransient<CriarContatoCommandHandler>();
+            services.AddTransient<RemoverContatoCommandHandler>();
 
             services.AddValidatorsFromAssemblyContaining<CriarContatoCommandValidator>();
+            services.AddValidatorsFromAssemblyContaining<RemoverContatoCommandValidator>();
 
             #endregion
 

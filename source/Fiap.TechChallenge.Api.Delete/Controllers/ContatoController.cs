@@ -1,7 +1,6 @@
-﻿using System.Diagnostics;
-using System.Net;
-using Fiap.TechChallenge.Api.Delete.Domain.Command.Handler;
-using Fiap.TechChallenge.Api.Delete.Domain.Contract;
+﻿using Fiap.TechChallenge.Core.Contracts.Commands;
+using Fiap.TechChallenge.Core.Contracts.Commands.CommandResults;
+using Fiap.TechChallenge.Core.Handlers;
 using Fiap.TechChallenge.Foundation.Core.Models;
 using FluentValidation;
 using Microsoft.AspNetCore.Http;
@@ -12,8 +11,10 @@ using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Enums;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Prometheus;
+using System.Diagnostics;
+using System.Net;
 
-namespace Fiap.TechChallenge.Api.Delete.Infrastructure.Web.Controller;
+namespace Fiap.TechChallenge.Api.Delete.Controllers;
 
 public class ContatoController
 {
@@ -39,7 +40,7 @@ public class ContatoController
         _validator = validator;
         _removerContatoCommandHandler = removerContatoCommandHandler;
     }
-    
+
     [Function("RemoverContatoPorId")]
     [OpenApiOperation("RemoverContatoPorId", "Fiap", Description = DescriptionRemocao)]
     [OpenApiSecurity("function_key", SecuritySchemeType.ApiKey, Name = "code", In = OpenApiSecurityLocationType.Query)]
@@ -56,17 +57,17 @@ public class ContatoController
 
         // Métrica personalizada para contagem de status
         var requestCounter = Metrics.CreateCounter(counterName, $"Total de requisições ao endpoint {endPoint}", new CounterConfiguration { LabelNames = new[] { "status" } });
-        
+
         try
         {
             var stopwatch = Stopwatch.StartNew();
             // Atualiza a métrica de uso de memória
             MemoryUsageByEndpointGauge.WithLabels(endPoint).Set(Process.GetCurrentProcess().WorkingSet64);
-            
+
             var command = new RemoverContatoCommand() { Id = id };
             await _validator.ValidateAndThrowAsync(command);
             var result = await _removerContatoCommandHandler.Handle(command);
-            
+
             stopwatch.Stop();
             timer.ObserveDuration(); // Registra o tempo no Prometheus
             requestCounter.WithLabels("202").Inc(); // Incrementa contador para sucesso
@@ -80,5 +81,5 @@ public class ContatoController
             return new BadRequestObjectResult(new ErrorResponse(e.Message));
         }
     }
-    
+
 }

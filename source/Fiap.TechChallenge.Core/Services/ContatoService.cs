@@ -50,5 +50,32 @@ namespace Fiap.TechChallenge.Core.Services
                 throw new Exception(ex.Message);
             }
         }
+
+        public async Task<RemoverContatoResult> RemoverContatoAsync(RemoverContatoRequest request)
+        {
+            _logger.LogInformation("Iniciando remover de contato");
+            try
+            {
+                // Validação de entrada
+                ArgumentNullException.ThrowIfNull(request);
+
+                var msg = new RemoverContatoRequest(request.Id);
+
+                // Adicionar na fila
+                await _messageBrokerService.ProducerAsync("fiap-remover", JsonConvert.SerializeObject(msg));
+
+                return new RemoverContatoResult { Sucesso = true };
+            }
+            catch (BusinessException ex)
+            {
+                _logger.LogError(ex, ex.Message);
+                throw;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Erro ao criar contato.");
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }
