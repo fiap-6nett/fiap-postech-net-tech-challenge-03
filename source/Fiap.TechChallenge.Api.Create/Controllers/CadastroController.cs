@@ -1,7 +1,6 @@
-﻿using System.Diagnostics;
-using System.Net;
-using Fiap.TechChallenge.Api.Create.Domain.Command.Handler;
-using Fiap.TechChallenge.Api.Create.Domain.Contract.CriarContato;
+﻿using Fiap.TechChallenge.Core.Contracts.Commands;
+using Fiap.TechChallenge.Core.Contracts.Commands.CommandResults;
+using Fiap.TechChallenge.Core.Handlers.CommandHandlers;
 using Fiap.TechChallenge.Foundation.Core.Models;
 using FluentValidation;
 using Microsoft.AspNetCore.Http;
@@ -13,8 +12,10 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 using Prometheus;
+using System.Diagnostics;
+using System.Net;
 
-namespace Fiap.TechChallenge.Api.Create.Infrastructure.Web.Controller;
+namespace Fiap.TechChallenge.Api.Create.Controllers;
 
 public class CadastroController
 {
@@ -96,7 +97,7 @@ public class CadastroController
             var data = JsonConvert.DeserializeObject<CriarContatoCommand>(requestBody);
             await _validatorCriarContatoCommand!.ValidateAndThrowAsync(data);
             var result = await _criarContatoCommandHandler.Handle(data);
-            
+
             stopwatch.Stop();
             timer.ObserveDuration(); // Registra o tempo no Prometheus
             requestCounter.WithLabels("202").Inc(); // Incrementa contador para sucesso
@@ -106,7 +107,7 @@ public class CadastroController
         {
             timer.ObserveDuration(); // Registra o tempo mesmo em caso de erro
             requestCounter.WithLabels("400").Inc(); // Incrementa contador para erro
-            
+
             _logger.LogError($"Erro de validação: {valEx.Message}", valEx);
             return new BadRequestObjectResult(valEx.Message);
         }

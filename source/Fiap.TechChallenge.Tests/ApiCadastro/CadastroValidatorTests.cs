@@ -1,4 +1,5 @@
-﻿using Fiap.TechChallenge.Api.Create.Domain.Contract.CriarContato;
+﻿using Fiap.TechChallenge.Core.Contracts.Commands;
+using Fiap.TechChallenge.Core.Contracts.Commands.CommandValidators;
 using FluentValidation.TestHelper;
 
 namespace Fiap.TechChallenge.Test.ApiCadastro;

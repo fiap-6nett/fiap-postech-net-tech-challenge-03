@@ -1,4 +1,4 @@
-﻿using Fiap.TechChallenge.Api.Create.Infrastructure.MessageBroker;
+﻿using Fiap.TechChallenge.Core.Messaging;
 using Microsoft.Extensions.Logging;
 using Moq;
 using RabbitMQ.Client;
