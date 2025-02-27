@@ -37,11 +37,13 @@ namespace Fiap.TechChallenge.Core.Extensions
             services.AddTransient<RemoverContatoCommandHandler>();
             services.AddTransient<ObterContatosPorDddQueryHandler>();
             services.AddTransient<ObterContatoPorIdQueryHandler>();
+            services.AddTransient<AtualizarContatoCommandHandler>();
 
             services.AddValidatorsFromAssemblyContaining<CriarContatoCommandValidator>();
             services.AddValidatorsFromAssemblyContaining<RemoverContatoCommandValidator>();
             services.AddTransient<ObterContatosPorDddQueryHandler>();
             services.AddTransient<ObterContatoPorIdQueryHandler>();
+            services.AddTransient<AtualizarContatoCommandValidator>();
 
             #endregion
 

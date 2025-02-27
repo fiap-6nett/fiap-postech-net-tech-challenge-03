@@ -137,5 +137,33 @@ namespace Fiap.TechChallenge.Core.Services
                 throw new Exception("Erro ao obter contatos por DDD.");
             }
         }
+
+        public async Task<AtualizarContatoResult> AtualizarContatoAsync(AtualizarContatoRequest request)
+        {
+            _logger.LogInformation("Iniciando atualizacao de contato");
+            try
+            {
+                // Validação de entrada
+                ArgumentNullException.ThrowIfNull(request);
+
+                // Criar entidade de contato
+                var contato = new ContatoEntity(Guid.NewGuid(), request.Nome, request.Telefone, request.Email, request.DDD);
+
+                // Adicionar na fila
+                await _messageBrokerService.ProducerAsync("fiap-atualizar", JsonConvert.SerializeObject(contato));
+
+                return new AtualizarContatoResult { Contato = contato };
+            }
+            catch (BusinessException ex)
+            {
+                _logger.LogError(ex, ex.Message);
+                throw;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Erro ao atualziar contato.");
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

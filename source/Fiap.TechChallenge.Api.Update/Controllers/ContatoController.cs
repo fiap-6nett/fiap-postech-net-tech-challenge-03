@@ -1,7 +1,6 @@
-﻿using System.Diagnostics;
-using System.Net;
-using Fiap.TechChallenge.Api.Update.Domain.Command.Handler;
-using Fiap.TechChallenge.Api.Update.Domain.Contract;
+﻿using Fiap.TechChallenge.Core.Contracts.Commands;
+using Fiap.TechChallenge.Core.Contracts.Commands.CommandResults;
+using Fiap.TechChallenge.Core.Handlers.CommandHandlers;
 using Fiap.TechChallenge.Foundation.Core.Models;
 using FluentValidation;
 using Microsoft.AspNetCore.Http;
@@ -13,8 +12,10 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 using Prometheus;
+using System.Diagnostics;
+using System.Net;
 
-namespace Fiap.TechChallenge.Api.Update.Infrastructure.Web.Controller;
+namespace Fiap.TechChallenge.Api.Update.Controllers;
 
 public class ContatoController
 {
@@ -47,7 +48,7 @@ public class ContatoController
         _validator = validator;
         _atualizarContatoCommandHandler = autalizarContatoCommandHandler;
     }
-    
+
     [Function("AtualizarContatoCommand")]
     [OpenApiOperation("AtualizarContatoCommand", "Fiap", Description = DescriptionAtualizacao)]
     [OpenApiSecurity("function_key", SecuritySchemeType.ApiKey, Name = "code", In = OpenApiSecurityLocationType.Query)]
@@ -75,7 +76,7 @@ public class ContatoController
             var data = JsonConvert.DeserializeObject<AtualizarContatoCommand>(requestBody);
             await _validator!.ValidateAndThrowAsync(data);
             var result = await _atualizarContatoCommandHandler.Handle(data);
-            
+
             stopwatch.Stop();
             timer.ObserveDuration(); // Registra o tempo no Prometheus
             requestCounter.WithLabels("202").Inc(); // Incrementa contador para sucesso
@@ -85,7 +86,7 @@ public class ContatoController
         {
             timer.ObserveDuration(); // Registra o tempo mesmo em caso de erro
             requestCounter.WithLabels("400").Inc(); // Incrementa contador para erro
-            
+
             _logger.LogError($"Erro de validação: {valEx.Message}", valEx);
             return new BadRequestObjectResult(valEx.Message);
         }

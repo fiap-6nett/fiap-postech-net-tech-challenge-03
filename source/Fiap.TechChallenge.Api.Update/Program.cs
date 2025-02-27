@@ -1,10 +1,6 @@
-using Fiap.TechChallenge.Api.Update.Domain.Command.Handler;
-using Fiap.TechChallenge.Api.Update.Domain.Contato;
-using Fiap.TechChallenge.Api.Update.Domain.Contract;
-using Fiap.TechChallenge.Api.Update.Infrastructure.MessageBroker;
-using FluentValidation;
+using Fiap.TechChallenge.Core.Extensions;
+using Fiap.TechChallenge.Core.Messaging.Settings;
 using Microsoft.Azure.Functions.Worker;
-using Microsoft.Azure.Functions.Worker.Builder;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Abstractions;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Configurations;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Enums;
@@ -15,61 +11,58 @@ using Newtonsoft.Json;
 using RabbitMQ.Client;
 
 var host = new HostBuilder()
-    .ConfigureFunctionsWebApplication()
-    .ConfigureServices(services =>
+.ConfigureFunctionsWebApplication()
+.ConfigureServices((context, services) =>
+{
+    #region Settings
+
+    services.AddApplicationInsightsTelemetryWorkerService();
+    services.ConfigureFunctionsApplicationInsights();
+
+    services.AddControllers().AddNewtonsoftJson(options =>
     {
-        services.AddApplicationInsightsTelemetryWorkerService();
-        services.ConfigureFunctionsApplicationInsights();
+        options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
+        options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Serialize;
+    });
 
-        services.AddControllers().AddNewtonsoftJson(options =>
+    // Configure os serviços necessários para OpenApi
+    services.AddSingleton<IOpenApiConfigurationOptions>(_ => new DefaultOpenApiConfigurationOptions
+    {
+        // The important parts:
+        IncludeRequestingHostName = false,
+        Servers = [new OpenApiServer { Url = "/api" }],
+
+        // Optional settings:
+        Info =
         {
-            options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
-            options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Serialize;
-        });
-
-        // Configure os serviços necessários para OpenApi
-        services.AddSingleton<IOpenApiConfigurationOptions>(_ => new DefaultOpenApiConfigurationOptions
-        {
-            // The important parts:
-            IncludeRequestingHostName = false,
-            Servers = [new OpenApiServer { Url = "/api" }],
-
-            // Optional settings:
-            Info =
+            Version = "1.0.0", // Version of your API
+            Title = "API de Atualizacao - Tech Challenge 03",
+            Description = "Esta API permite atualzair os contatos no sistema, seguindo a arquitetura de microsserviços e utilizando RabbitMQ para comunicação assíncrona.",
+            Contact = new OpenApiContact
             {
-                Version = "1.0.0", // Version of your API
-                Title = "API de Atualizacao - Tech Challenge 03",
-                Description = "Esta API permite atualzair os contatos no sistema, seguindo a arquitetura de microsserviços e utilizando RabbitMQ para comunicação assíncrona.",
-                Contact = new OpenApiContact
-                {
-                    Name = "Equipe Tech Challenge 03",
-                    Email = "suporte@techchallenge03.com"
-                }
-            },
-            OpenApiVersion = OpenApiVersionType.V3
-        });
+                Name = "Equipe Tech Challenge 03",
+                Email = "suporte@techchallenge03.com"
+            }
+        },
+        OpenApiVersion = OpenApiVersionType.V3
+    });
         
-        // Configuração da conexão com RabbitMQ
-        services.AddSingleton<IConnection>(sp =>
-        {
-            var settings = new MessageBrokerSettings();
-            var factory = settings.CreateConnectionFactory();
-            return factory.CreateConnection();
-        });
+    // Configuração da conexão com RabbitMQ
+    services.AddSingleton<IConnection>(sp =>
+    {
+        var settings = new MessageBrokerSettings();
+        var factory = settings.CreateConnectionFactory();
+        return factory.CreateConnection();
+    });
 
-        // Registra a Service que usa RabbitMQ
-        services.AddSingleton<IMessageBrokerService, MessageBrokerService>();
-        
-        //  Service
-        services.AddTransient<IContatoService, ContatoService>();
-        services.AddTransient<IMessageBrokerService, MessageBrokerService>();
-        
-        // FluentValidation
-        services.AddValidatorsFromAssemblyContaining<AtualizarContatoCommandValidator>();
+    #endregion
 
-        //  Handler
-        services.AddTransient<AtualizarContatoCommandHandler>();
-    })
-    .Build();
+    #region Registrations
+
+    services.AddCoreServices(context.Configuration);
+
+    #endregion
+
+}).Build();
 
 host.Run();
