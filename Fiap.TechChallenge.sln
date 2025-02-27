@@ -37,6 +37,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Workers", "Workers", "{47E8
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Functions", "Functions", "{73B79125-E687-49BE-85ED-6157D7FCB5A6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fiap.TechChallenge.Core", "source\Fiap.TechChallenge.Core\Fiap.TechChallenge.Core.csproj", "{50AE101D-0AA7-4AA5-A3A5-1CAE4B94A596}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{C43DD958-DF7B-4EE7-9611-DF6141A05854}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C43DD958-DF7B-4EE7-9611-DF6141A05854}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C43DD958-DF7B-4EE7-9611-DF6141A05854}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50AE101D-0AA7-4AA5-A3A5-1CAE4B94A596}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50AE101D-0AA7-4AA5-A3A5-1CAE4B94A596}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50AE101D-0AA7-4AA5-A3A5-1CAE4B94A596}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50AE101D-0AA7-4AA5-A3A5-1CAE4B94A596}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -92,6 +98,7 @@ Global
 		{1D839D10-11FC-4E17-A762-53EDEBF54E84} = {97BF73A5-A965-42C2-8632-D959B77DFCF5}
 		{47E8CB00-A998-4C27-BF07-4220558AEF6E} = {713949AB-76CB-4C05-837F-A95CE85E0698}
 		{73B79125-E687-49BE-85ED-6157D7FCB5A6} = {713949AB-76CB-4C05-837F-A95CE85E0698}
+		{50AE101D-0AA7-4AA5-A3A5-1CAE4B94A596} = {1D839D10-11FC-4E17-A762-53EDEBF54E84}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {12C25870-8C62-47FB-ADC2-03E923AC3AD1}
