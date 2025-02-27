@@ -15,12 +15,11 @@ namespace Fiap.TechChallenge.Core.Messaging
         private readonly ILogger<MessageBrokerService> _logger;
         private readonly MessageBrokerSettings _messageBrokerConfiguration;
 
-
-        public MessageBrokerService(IConnection connection, ILogger<MessageBrokerService> logger)
+        public MessageBrokerService(IConnection connection, ILogger<MessageBrokerService> logger, MessageBrokerSettings messageBrokerConfiguration)
         {
             _connection = connection;
             _logger = logger;
-            _messageBrokerConfiguration = new MessageBrokerSettings();
+            _messageBrokerConfiguration = messageBrokerConfiguration;
         }
 
         /// <summary>
@@ -40,17 +39,14 @@ namespace Fiap.TechChallenge.Core.Messaging
                     channel.QueueDeclare(queueName, true, false, false, null);
 
                     var body = Encoding.UTF8.GetBytes(message);
-
                     var props = channel.CreateBasicProperties();
                     props.Persistent = true;
 
                     channel.BasicPublish("", queueName, props, body);
-
                     return Task.FromResult(true);
                 }
                 catch (Exception ex)
                 {
-                    // ReSharper disable once TemplateIsNotCompileTimeConstantProblem
                     var mensagem = $"Erro ao enviar mensagem para a fila {queueName}";
                     _logger.LogError(mensagem, ex.Serialize());
                     throw new Exception(mensagem, ex);

@@ -1,4 +1,5 @@
-﻿using RabbitMQ.Client;
+﻿using Microsoft.Extensions.Configuration;
+using RabbitMQ.Client;
 
 namespace Fiap.TechChallenge.Core.Messaging.Settings
 {
@@ -8,17 +9,14 @@ namespace Fiap.TechChallenge.Core.Messaging.Settings
         public readonly string Password;
         public readonly string UserName;
         public readonly string VirtualHost;
-        public readonly string ConnectionUri;
+        public string ConnectionUri => $"amqps://{UserName}:{Password}@{Hostname}/{VirtualHost.TrimStart('/')}";
 
-        public MessageBrokerSettings()
+        public MessageBrokerSettings(IConfiguration configuration)
         {
-            Hostname = Environment.GetEnvironmentVariable("FMessageBroker_Hostname");
-            Password = Environment.GetEnvironmentVariable("FMessageBroker_Password");
-            UserName = Environment.GetEnvironmentVariable("FMessageBroker_UserName");
-            VirtualHost = Environment.GetEnvironmentVariable("FMessageBroker_VirtualHost");
-
-            // Criando URI de conexão para simplificar
-            ConnectionUri = $"amqps://{UserName}:{Password}@{Hostname}/{VirtualHost.TrimStart('/')}";
+            Hostname = configuration["FMessageBroker:Hostname"];
+            Password = configuration["FMessageBroker:Password"];
+            UserName = configuration["FMessageBroker:UserName"];
+            VirtualHost = configuration["FMessageBroker:VirtualHost"];
         }
 
         public ConnectionFactory CreateConnectionFactory()

@@ -20,7 +20,7 @@ namespace Fiap.TechChallenge.Core.Handlers.CommandHandlers
 
         public async Task<CriarContatoCommandResult> Handle(CriarContatoCommand commandRequest)
         {
-            var result = await _service.CriarContatoAsync(new CriarContatoRequest(commandRequest.Nome, commandRequest.Telefone, commandRequest.Email, commandRequest.DDD));
+            var result = await _service.CriarContatoQueueAsync(new CriarContatoRequest(commandRequest.Nome, commandRequest.Telefone, commandRequest.Email, commandRequest.DDD));
             return new CriarContatoCommandResult
             {
                 CorrelationId = result.Contato.Id,

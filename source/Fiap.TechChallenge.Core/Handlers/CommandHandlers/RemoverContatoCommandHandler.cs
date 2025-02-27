@@ -20,7 +20,7 @@ namespace Fiap.TechChallenge.Core.Handlers.CommandHandlers
 
         public async Task<RemoverContatoCommandResult> Handle(RemoverContatoCommand commandRequest)
         {
-            var result = await _service.RemoverContatoAsync(new RemoverContatoRequest(Guid.Parse(commandRequest.Id)));
+            var result = await _service.RemoverContatoQueueAsync(new RemoverContatoRequest(Guid.Parse(commandRequest.Id)));
             return new RemoverContatoCommandResult
             {
                 CorrelationId = Guid.Parse(commandRequest.Id),

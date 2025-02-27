@@ -20,7 +20,7 @@ namespace Fiap.TechChallenge.Core.Handlers.QueryHandlers
 
         public async Task<ObterContatosPorDddQueryResult> Handle(ObterContatosPorDddQueryRequest queryRequest)
         {
-            var porDddResult = await _service.ObterContatosPorDddAsync(new ObterContatosPorDddRequest(queryRequest.Ddd));
+            var porDddResult = await _service.ObterContatosPorDddQueueAsync(new ObterContatosPorDddRequest(queryRequest.Ddd));
             var result = porDddResult.Contatos.Select(contato => new ContatoQueryResult(contato.Id, contato.Nome, contato.Telefone, contato.Email, contato.DDD)).ToList();
 
             return new ObterContatosPorDddQueryResult

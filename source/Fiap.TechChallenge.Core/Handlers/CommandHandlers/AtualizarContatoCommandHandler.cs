@@ -21,7 +21,7 @@ namespace Fiap.TechChallenge.Core.Handlers.CommandHandlers
 
         public async Task<AtualizarContatoCommandResult> Handle(AtualizarContatoCommand commandRequest)
         {
-            var result = await _service.AtualizarContatoAsync(new AtualizarContatoRequest(Guid.Parse(commandRequest.Id), commandRequest.Nome, commandRequest.Telefone, commandRequest.Email, commandRequest.DDD));
+            var result = await _service.AtualizarContatoQueueAsync(new AtualizarContatoRequest(Guid.Parse(commandRequest.Id), commandRequest.Nome, commandRequest.Telefone, commandRequest.Email, commandRequest.DDD));
             return new AtualizarContatoCommandResult
             {
                 CorrelationId = result.Contato.Id,

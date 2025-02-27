@@ -20,7 +20,7 @@ namespace Fiap.TechChallenge.Core.Handlers.QueryHandlers
 
         public async Task<ObterContatoPorIdQueryResult> Handle(ObterContatoPorIdQueryRequest queryRequest)
         {
-            var result = await _service.ObterContatoPorIdAsync(new ObterContatoPorIdRequest(Guid.Parse(queryRequest.Id)));
+            var result = await _service.ObterContatoPorIdQueueAsync(new ObterContatoPorIdRequest(Guid.Parse(queryRequest.Id)));
             return new ObterContatoPorIdQueryResult
             {
                 Id = result.Contato.Id,

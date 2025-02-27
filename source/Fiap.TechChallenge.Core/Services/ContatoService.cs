@@ -1,5 +1,6 @@
 ﻿using Fiap.TechChallenge.Core.Contracts.Requests;
 using Fiap.TechChallenge.Core.Contracts.Results;
+using Fiap.TechChallenge.Core.Data.CommandStores;
 using Fiap.TechChallenge.Core.Data.QueryStores;
 using Fiap.TechChallenge.Core.Entities;
 using Fiap.TechChallenge.Core.Messaging;
@@ -14,15 +15,19 @@ namespace Fiap.TechChallenge.Core.Services
         private readonly ILogger<ContatoService> _logger;
         private readonly IContatoQueryStore _contatoQueryStore;
         private readonly IMessageBrokerService _messageBrokerService;
+        private readonly IContatoCommandStore _contatoCommandStore;
 
-        public ContatoService(ILogger<ContatoService> logger, IMessageBrokerService messageBrokerService, IContatoQueryStore contatoQueryStore)
+        public ContatoService(ILogger<ContatoService> logger, IMessageBrokerService messageBrokerService, IContatoQueryStore contatoQueryStore, IContatoCommandStore contatoCommandStore)
         {
             _logger = logger;
             _messageBrokerService = messageBrokerService;
             _contatoQueryStore = contatoQueryStore;
+            _contatoCommandStore = contatoCommandStore;
         }
 
-        public async Task<CriarContatoResult> CriarContatoAsync(CriarContatoRequest request)
+        #region Queue Methods
+
+        public async Task<CriarContatoResult> CriarContatoQueueAsync(CriarContatoRequest request)
         {
             _logger.LogInformation("Iniciando criação de contato");
             try
@@ -54,9 +59,9 @@ namespace Fiap.TechChallenge.Core.Services
             }
         }
 
-        public async Task<RemoverContatoResult> RemoverContatoAsync(RemoverContatoRequest request)
+        public async Task<RemoverContatoResult> RemoverContatoQueueAsync(RemoverContatoRequest request)
         {
-            _logger.LogInformation("Iniciando remover de contato");
+            _logger.LogInformation("Iniciando envio de comando para remoção do contato com ID: {Id}", request.Id);
             try
             {
                 // Validação de entrada
@@ -81,7 +86,7 @@ namespace Fiap.TechChallenge.Core.Services
             }
         }
 
-        public async Task<ObterContatoPorIdResult> ObterContatoPorIdAsync(ObterContatoPorIdRequest request)
+        public async Task<ObterContatoPorIdResult> ObterContatoPorIdQueueAsync(ObterContatoPorIdRequest request)
         {
             _logger.LogInformation("Iniciando obtenção do contato com ID: {Id}", request.Id);
             try
@@ -110,7 +115,7 @@ namespace Fiap.TechChallenge.Core.Services
             }
         }
 
-        public async Task<ObterContatosPorDddResult> ObterContatosPorDddAsync(ObterContatosPorDddRequest request)
+        public async Task<ObterContatosPorDddResult> ObterContatosPorDddQueueAsync(ObterContatosPorDddRequest request)
         {
             _logger.LogInformation("Iniciando a busca de contatos para o DDD: {Ddd}", request.Ddd);
 
@@ -138,7 +143,7 @@ namespace Fiap.TechChallenge.Core.Services
             }
         }
 
-        public async Task<AtualizarContatoResult> AtualizarContatoAsync(AtualizarContatoRequest request)
+        public async Task<AtualizarContatoResult> AtualizarContatoQueueAsync(AtualizarContatoRequest request)
         {
             _logger.LogInformation("Iniciando atualizacao de contato");
             try
@@ -165,5 +170,45 @@ namespace Fiap.TechChallenge.Core.Services
                 throw new Exception(ex.Message);
             }
         }
+
+        #endregion
+
+        #region Persistence Methods
+
+        /// <summary>
+        /// Remove definitivamente o contato do banco de dados.
+        /// </summary>
+        public async Task<RemoverContatoResult> RemoverContatoAsync(RemoverContatoRequest request)
+        {
+            _logger.LogInformation("Iniciando remoção definitiva do contato com ID: {ContatoId}", request.Id);
+            try
+            {
+                ArgumentNullException.ThrowIfNull(request, nameof(request));
+
+                bool sucesso = await _contatoCommandStore.RemoverContatoAsync(request.Id);
+                if (sucesso)
+                {
+                    _logger.LogInformation("Contato com ID {ContatoId} removido definitivamente.", request.Id);
+                }
+                else
+                {
+                    _logger.LogWarning("Falha ao remover definitivamente o contato com ID {ContatoId}.", request.Id);
+                }
+
+                return new RemoverContatoResult { Sucesso = sucesso };
+            }
+            catch (BusinessException ex)
+            {
+                _logger.LogError(ex, "Erro ao remover definitivamente o contato: {Mensagem}", ex.Message);
+                throw;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Erro ao remover definitivamente o contato: {Mensagem}", ex.Message);
+                throw new Exception("Erro ao remover definitivamente o contato: " + ex.Message, ex);
+            }
+        }
+
+        #endregion
     }
 }

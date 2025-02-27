@@ -5,10 +5,20 @@ namespace Fiap.TechChallenge.Core.Services
 {
     public interface IContatoService
     {
-        Task<CriarContatoResult> CriarContatoAsync(CriarContatoRequest request);
+        #region Queue Methods
+
+        Task<CriarContatoResult> CriarContatoQueueAsync(CriarContatoRequest request);
+        Task<RemoverContatoResult> RemoverContatoQueueAsync(RemoverContatoRequest request);
+        Task<ObterContatoPorIdResult> ObterContatoPorIdQueueAsync(ObterContatoPorIdRequest request);
+        Task<ObterContatosPorDddResult> ObterContatosPorDddQueueAsync(ObterContatosPorDddRequest request);
+        Task<AtualizarContatoResult> AtualizarContatoQueueAsync(AtualizarContatoRequest request);
+
+        #endregion
+
+        #region Persistence Methods
+
         Task<RemoverContatoResult> RemoverContatoAsync(RemoverContatoRequest request);
-        Task<ObterContatoPorIdResult> ObterContatoPorIdAsync(ObterContatoPorIdRequest request);
-        Task<ObterContatosPorDddResult> ObterContatosPorDddAsync(ObterContatosPorDddRequest request);
-        Task<AtualizarContatoResult> AtualizarContatoAsync(AtualizarContatoRequest request);
+
+        #endregion
     }
 }

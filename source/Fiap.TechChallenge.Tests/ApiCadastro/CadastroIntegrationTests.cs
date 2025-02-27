@@ -1,4 +1,6 @@
 ﻿using Fiap.TechChallenge.Core.Messaging;
+using Fiap.TechChallenge.Core.Messaging.Settings;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Moq;
 using RabbitMQ.Client;
@@ -16,12 +18,15 @@ public class CadastroIntegrationTests
         _mockConnection = new Mock<IConnection>();
         _mockLogger = new Mock<ILogger<MessageBrokerService>>();
 
-        Environment.SetEnvironmentVariable("FMessageBroker_Hostname", "toucan-01.lmq.cloudamqp.com");
-        Environment.SetEnvironmentVariable("FMessageBroker_Password", "EgeNXUTA7cp9ownXvg8XOQESox2N9Rbc");
-        Environment.SetEnvironmentVariable("FMessageBroker_UserName", "wesrhrfp");
-        Environment.SetEnvironmentVariable("FMessageBroker_VirtualHost", "wesrhrfp");
+        Environment.SetEnvironmentVariable("FMessageBroker:Hostname", "toucan-01.lmq.cloudamqp.com");
+        Environment.SetEnvironmentVariable("FMessageBroker:Password", "EgeNXUTA7cp9ownXvg8XOQESox2N9Rbc");
+        Environment.SetEnvironmentVariable("FMessageBroker:UserName", "wesrhrfp");
+        Environment.SetEnvironmentVariable("FMessageBroker:VirtualHost", "wesrhrfp");
 
-        _messageBrokerService = new MessageBrokerService(_mockConnection.Object, _mockLogger.Object);
+        var configuration = new ConfigurationBuilder().AddEnvironmentVariables().Build();
+        var messageBrokerSettings = new MessageBrokerSettings(configuration);
+
+        _messageBrokerService = new MessageBrokerService(_mockConnection.Object, _mockLogger.Object, messageBrokerSettings);
     }
 
     [Fact]

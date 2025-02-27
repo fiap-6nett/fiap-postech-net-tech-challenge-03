@@ -1,12 +1,14 @@
-﻿namespace Fiap.TechChallenge.Core.Data.Settings
+﻿using Microsoft.Extensions.Configuration;
+
+namespace Fiap.TechChallenge.Core.Data.Settings
 {
     public class CommandStoreSettings
     {
-        public CommandStoreSettings()
-        {
-            SqlConnectionString = Environment.GetEnvironmentVariable("FDataBase_SqlConnectionString");
-        }
+        public string SqlConnectionString { get; }
 
-        public string SqlConnectionString { get; set; }
+        public CommandStoreSettings(IConfiguration configuration)
+        {
+            SqlConnectionString = configuration.GetConnectionString("FDataBase_SqlConnectionString");
+        }
     }
 }

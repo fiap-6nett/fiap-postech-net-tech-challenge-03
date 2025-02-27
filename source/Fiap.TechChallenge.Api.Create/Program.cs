@@ -46,14 +46,6 @@ var host = new HostBuilder()
         },
         OpenApiVersion = OpenApiVersionType.V3
     });
-        
-    // Configuração da conexão com RabbitMQ
-    services.AddSingleton<IConnection>(sp =>
-    {
-        var settings = new MessageBrokerSettings();
-        var factory = settings.CreateConnectionFactory();
-        return factory.CreateConnection();
-    });
 
     #endregion
 
