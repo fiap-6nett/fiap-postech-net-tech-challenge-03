@@ -94,6 +94,17 @@ namespace Fiap.TechChallenge.Core.Entities
             DDD = ddd;
         }
 
+        /// <summary>
+        /// Atualiza os dados do contato.
+        /// </summary>
+        public void Update(string nome, string telefone, string email, int ddd)
+        {
+            Nome = nome;
+            Telefone = telefone;
+            Email = email;
+            DDD = ddd;
+        }
+
         #endregion
     }
 }

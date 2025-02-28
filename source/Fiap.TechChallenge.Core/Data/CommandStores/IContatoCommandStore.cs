@@ -19,5 +19,7 @@ namespace Fiap.TechChallenge.Core.Data.CommandStores
         /// <param name="id">O identificador do contato a ser removido.</param>
         /// <returns>True se a exclusão for realizada com sucesso; caso contrário, false.</returns>
         Task<bool> RemoverContatoAsync(Guid id);
+
+        Task<bool> AtualizarContatoAsync(ContatoEntity contato);
     }
 }

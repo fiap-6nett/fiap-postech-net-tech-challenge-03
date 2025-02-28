@@ -72,5 +72,38 @@ namespace Fiap.TechChallenge.Core.Data.CommandStores
                 throw;
             }
         }
+
+        public async Task<bool> AtualizarContatoAsync(ContatoEntity contato)
+        {
+            try
+            {
+                await using var dbContext = _dbContextFactory.CreateDbContext();
+                var contatoExistente = await dbContext.Contatos.FindAsync(contato.Id);
+                if (contatoExistente == null)
+                {
+                    _logger.LogWarning("Contato com ID {Id} não encontrado para atualização.", contato.Id);
+                    return false;
+                }
+
+                contatoExistente.Update(contato.Nome, contato.Telefone, contato.Email, contato.DDD);
+
+                var changes = await dbContext.SaveChangesAsync();
+                if (changes > 0)
+                {
+                    _logger.LogInformation("Contato com ID {Id} atualizado com sucesso.", contato.Id);
+                    return true;
+                }
+                else
+                {
+                    _logger.LogWarning("Nenhuma alteração realizada na atualização do contato com ID {Id}.", contato.Id);
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Erro ao atualizar o contato com ID {Id}.", contato.Id);
+                throw;
+            }
+        }
     }
 }
