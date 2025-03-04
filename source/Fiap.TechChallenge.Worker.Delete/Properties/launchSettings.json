@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Fiap.TechChallenge.Worker.Delete": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7156",
+      "launchBrowser": false
+    }
+  }
+}

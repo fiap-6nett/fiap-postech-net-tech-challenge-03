@@ -29,7 +29,7 @@ public class ContatoService : IContatoService
             ArgumentNullException.ThrowIfNull(request);
 
             // Criar entidade de contato
-            var contato = new ContatoEntity(request.Id, request.Nome, request.Telefone, request.Email, request.DDD);
+            var contato = new ContatoEntity(Guid.NewGuid(), request.Nome, request.Telefone, request.Email, request.DDD);
 
             // Adicionar na fila
             await _messageBrokerService.ProducerAsync("fiap-atualizar", JsonConvert.SerializeObject(contato));

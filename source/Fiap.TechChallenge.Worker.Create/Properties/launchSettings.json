@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Fiap.TechChallenge.Worker.Create": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7208",
+      "launchBrowser": false
+    }
+  }
+}

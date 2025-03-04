@@ -1,9 +1,0 @@
-{
-  "profiles": {
-    "Fiap.TC03.Worker.Cadastro": {
-      "commandName": "Project",
-      "commandLineArgs": "--port 7208",
-      "launchBrowser": false
-    }
-  }
-}

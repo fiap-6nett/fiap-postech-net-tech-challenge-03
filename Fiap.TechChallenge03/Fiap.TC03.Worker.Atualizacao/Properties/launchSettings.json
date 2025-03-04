@@ -1,9 +1,0 @@
-{
-  "profiles": {
-    "Fiap.TC03.Worker.Atualizacao": {
-      "commandName": "Project",
-      "commandLineArgs": "--port 7205",
-      "launchBrowser": false
-    }
-  }
-}

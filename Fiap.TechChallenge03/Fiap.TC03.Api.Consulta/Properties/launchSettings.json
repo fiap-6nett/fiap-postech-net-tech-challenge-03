@@ -1,9 +1,0 @@
-{
-  "profiles": {
-    "Fiap.TC03.Api.Consulta": {
-      "commandName": "Project",
-      "commandLineArgs": "--port 7145",
-      "launchBrowser": false
-    }
-  }
-}
