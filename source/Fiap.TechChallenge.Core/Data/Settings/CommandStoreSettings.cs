@@ -8,7 +8,7 @@ namespace Fiap.TechChallenge.Core.Data.Settings
 
         public CommandStoreSettings(IConfiguration configuration)
         {
-            SqlConnectionString = configuration.GetConnectionString("DefaultConnection");
+            SqlConnectionString = Environment.GetEnvironmentVariable("FDataBase_SqlConnectionString");
         }
     }
 }

@@ -13,10 +13,10 @@ namespace Fiap.TechChallenge.Core.Messaging.Settings
 
         public MessageBrokerSettings(IConfiguration configuration)
         {
-            Hostname = configuration["FMessageBroker:Hostname"];
-            Password = configuration["FMessageBroker:Password"];
-            UserName = configuration["FMessageBroker:UserName"];
-            VirtualHost = configuration["FMessageBroker:VirtualHost"];
+            Hostname = Environment.GetEnvironmentVariable("FMessageBroker_Hostname");
+            Password = Environment.GetEnvironmentVariable("FMessageBroker_Password");
+            UserName = Environment.GetEnvironmentVariable("FMessageBroker_UserName");
+            VirtualHost = Environment.GetEnvironmentVariable("FMessageBroker_VirtualHost");
         }
 
         public ConnectionFactory CreateConnectionFactory()
