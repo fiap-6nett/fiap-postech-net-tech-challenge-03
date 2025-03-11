@@ -1,0 +1,37 @@
+on:
+  push: # Aciona o workflow em qualquer push na branch "main"
+    branches:
+      - main
+  pull_request: # Aciona o workflow quando há um pull request direcionado à branch "main"
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest # Define que o job será executado em um ambiente Ubuntu mais recente
+
+    steps:
+    - name: Checkout repository # Faz o checkout do código do repositório para a máquina de build
+      uses: actions/checkout@v3
+
+    - name: Setup .NET 8 # Configura o ambiente com a versão 8 do .NET SDK
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '8.0.x' # Especifica a versão do .NET SDK a ser usada
+
+    - name: Restore dependencies for solution # Restaura as dependências do arquivo de solução (.sln)
+      run: dotnet restore Fiap.TechChallenge.sln
+
+    - name: Build entire solution # Compila toda a solução no modo Release sem restaurar dependências novamente
+      run: dotnet build Fiap.TechChallenge.sln --configuration Release --no-restore
+
+    - name: Run tests # Executa os testes definidos nos projetos da solução com detalhes do output
+      run: dotnet test Fiap.TechChallenge.sln --configuration Release --no-build --verbosity normal
+
+    - name: Publish API project # Publica o projeto de API no modo Release e salva os arquivos no diretório ./artifacts
+      run: dotnet publish Fiap.TechChallenge.Api --configuration Release --output ./artifacts
+
+    - name: Upload artifacts # Faz upload dos arquivos publicados como artefatos do workflow
+      uses: actions/upload-artifact@v3
+      with:
+        name: api-fase2-artifacts # Nome do pacote de artefatos
+        path: ./artifacts # Caminho para os artefatos gerados
