@@ -31,7 +31,7 @@ jobs:
       run: dotnet publish Fiap.TechChallenge.Api --configuration Release --output ./artifacts
 
     - name: Upload artifacts # Faz upload dos arquivos publicados como artefatos do workflow
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: api-fase2-artifacts # Nome do pacote de artefatos
         path: ./artifacts # Caminho para os artefatos gerados
