@@ -18,10 +18,10 @@ public class CadastroIntegrationTests
         _mockConnection = new Mock<IConnection>();
         _mockLogger = new Mock<ILogger<MessageBrokerService>>();
 
-        Environment.SetEnvironmentVariable("FMessageBroker:Hostname", "toucan-01.lmq.cloudamqp.com");
-        Environment.SetEnvironmentVariable("FMessageBroker:Password", "EgeNXUTA7cp9ownXvg8XOQESox2N9Rbc");
-        Environment.SetEnvironmentVariable("FMessageBroker:UserName", "wesrhrfp");
-        Environment.SetEnvironmentVariable("FMessageBroker:VirtualHost", "wesrhrfp");
+        Environment.SetEnvironmentVariable("FMessageBroker_Hostname", "toucan-01.lmq.cloudamqp.com");
+        Environment.SetEnvironmentVariable("FMessageBroker_Password", "EgeNXUTA7cp9ownXvg8XOQESox2N9Rbc");
+        Environment.SetEnvironmentVariable("FMessageBroker_UserName", "wesrhrfp");
+        Environment.SetEnvironmentVariable("FMessageBroker_VirtualHost", "wesrhrfp");
 
         var configuration = new ConfigurationBuilder().AddEnvironmentVariables().Build();
         var messageBrokerSettings = new MessageBrokerSettings(configuration);
