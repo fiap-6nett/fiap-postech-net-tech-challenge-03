@@ -36,7 +36,19 @@ namespace Fiap.TechChallenge.Core.Messaging
                 try
                 {
                     using var channel = GetConnection().CreateModel();
-                    channel.QueueDeclare(queueName, true, false, false, null);
+                    var nameDlq = string.Concat("dlq_", queueName);
+                    
+                    channel.QueueDeclare(nameDlq, true, false, false, null);
+                    
+                    // Criando a fila principal e vinculando com a DLQ
+                    var args = new Dictionary<string, object>
+                    {
+                        { "x-dead-letter-exchange", "" },  // Sem exchange (padrão)
+                        { "x-dead-letter-routing-key", nameDlq },  // Nome da fila DLQ
+                        { "x-message-ttl", 1728000000 }  // 20 dias em milissegundos
+                    };
+                    
+                    channel.QueueDeclare(queueName, true, false, false, args);
 
                     var body = Encoding.UTF8.GetBytes(message);
                     var props = channel.CreateBasicProperties();
