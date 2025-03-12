@@ -28,7 +28,7 @@ jobs:
       run: dotnet test Fiap.TechChallenge.sln --configuration Release --no-build --verbosity normal
 
     - name: Publish API project # Publica o projeto de API no modo Release e salva os arquivos no diretório ./artifacts
-      run: dotnet publish Fiap.TechChallenge.Api --configuration Release --output ./artifacts
+      run: dotnet publish Fiap.TechChallenge.Api.sln --configuration Release --output ./artifacts
 
     - name: Upload artifacts # Faz upload dos arquivos publicados como artefatos do workflow
       uses: actions/upload-artifact@v4
