@@ -38,7 +38,16 @@ namespace Fiap.TechChallenge.Core.Messaging
                     using var channel = GetConnection().CreateModel();
                     var nameDlq = string.Concat("dlq_", queueName);
                     
-                    channel.QueueDeclare(nameDlq, true, false, false, null);
+                    // Tenta declarar a DLQ apenas se não existir
+                    try
+                    {
+                        channel.QueueDeclarePassive(nameDlq); // Apenas verifica se existe
+                    }
+                    catch (RabbitMQ.Client.Exceptions.OperationInterruptedException)
+                    {
+                        // Se não existe, cria a fila DLQ corretamente
+                        channel.QueueDeclare(nameDlq, true, false, false, null);
+                    }
                     
                     // Criando a fila principal e vinculando com a DLQ
                     var args = new Dictionary<string, object>
@@ -48,7 +57,16 @@ namespace Fiap.TechChallenge.Core.Messaging
                         { "x-message-ttl", 1728000000 }  // 20 dias em milissegundos
                     };
                     
-                    channel.QueueDeclare(queueName, true, false, false, args);
+                    // Tenta declarar a fila principal apenas se não existir
+                    try
+                    {
+                        channel.QueueDeclarePassive(queueName);
+                    }
+                    catch (RabbitMQ.Client.Exceptions.OperationInterruptedException)
+                    {
+                        // Se a fila não existe, criamos ela corretamente
+                        channel.QueueDeclare(queueName, true, false, false, args);
+                    }
 
                     var body = Encoding.UTF8.GetBytes(message);
                     var props = channel.CreateBasicProperties();
