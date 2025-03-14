@@ -54,7 +54,7 @@ namespace Fiap.TechChallenge.Core.Services
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Erro ao criar contato.");
+                _logger.LogError($"Erro ao criar contato. Falha {ex.Message}");
                 throw new Exception(ex.Message);
             }
         }
@@ -81,7 +81,7 @@ namespace Fiap.TechChallenge.Core.Services
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Erro ao criar contato.");
+                _logger.LogError($"Erro ao remover contato. Falha: {ex.Message}");
                 throw new Exception(ex.Message);
             }
         }
@@ -166,7 +166,7 @@ namespace Fiap.TechChallenge.Core.Services
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Erro ao atualziar contato.");
+                _logger.LogError( $"Erro ao atualziar contato. {ex.Message}");
                 throw new Exception(ex.Message);
             }
         }
