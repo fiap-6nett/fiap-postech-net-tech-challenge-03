@@ -30,7 +30,7 @@ public class CadastroController
         "- Email: Endereço de e-mail do contato. " +
         "- DDD: Código da região a que o contato pertence. " +
         "Retorna um status de sucesso (202 OK) se o contato for criado com êxito. " +
-        "Caso contrário, retorna um erro de validação (400 BadRequest) caso algum dos dados fornecidos seja inválidoo. ";
+        "Caso contrário, retorna um erro de validação (400 BadRequest) caso algum dos dados fornecidos seja inválido. ";
 
 
     private static readonly Gauge MemoryUsageByEndpointGauge = Metrics.CreateGauge("api_memory_usage_by_endpoint_bytes", "Uso de memória da API por endpoint em bytes", new GaugeConfiguration
